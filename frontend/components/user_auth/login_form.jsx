@@ -10,6 +10,7 @@ class LoginForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.guestLogin = this.guestLogin.bind(this);
     }
 
     //onChange, update the field in the form so we re-render
@@ -28,6 +29,16 @@ class LoginForm extends React.Component {
         this.props.login(this.state)
             //then push to history to redirect
             .then(this.props.history.push('/dashboard'))
+    }
+
+    guestLogin(e) {
+        debugger;
+        e.preventDefault();
+        this.setState({
+            email: 'codybreene@gmail.com',
+            password: 'password'
+        }, () => this.props.login(this.state)
+            .then(this.props.history.push('/dashboard')))
     }
 
     // render function that contains the form
@@ -52,7 +63,8 @@ class LoginForm extends React.Component {
                             onChange={this.updateForm('password')}
                         />
                     </label>
-                    <input type="submit" onClick={this.handleSubmit}/>
+                    <input type="submit" onClick={this.handleSubmit} value="Sign In"/>
+                    <input type="submit" onClick={this.guestLogin} value="Sign In as a Guest"/>
                 </form>
                 <p>
                     <Link to='/signup'>Don't have an account?</Link>

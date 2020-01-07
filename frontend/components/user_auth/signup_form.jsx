@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 class SignupForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            guestEmail: 'codybreen@gmail.com',
+            
         };
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -22,9 +25,10 @@ class SignupForm extends React.Component {
 
     //prevent default action of making a get request on submit
     //
-    handleSubmit(e) {
+    handleSubmit(e, demo=false) {
         e.preventDefault();
-        this.props.signup(this.state);
+        this.props.signup(this.state)
+            .then(this.props.history.push('/dashboard'))
     }
 
     // render function that contains the form
@@ -51,7 +55,7 @@ class SignupForm extends React.Component {
                                 onChange={this.updateForm('password')}
                                 />
                         </label>
-                        <button>
+                        <button onClick={this.handleSubmit}>
                             <span>Create account</span>
                         </button>
                     </form>
