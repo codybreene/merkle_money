@@ -61,6 +61,6 @@ class SignupForm extends React.Component {
             </div>
         )
     }
-
-
 }
+
+export default SignupForm;
