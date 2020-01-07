@@ -8,6 +8,7 @@ class SignupForm extends React.Component {
             email: '',
             password: ''
         };
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     
     //onChange, update the field in the form so we re-render
