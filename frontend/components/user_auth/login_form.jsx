@@ -45,8 +45,9 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div className="session">
-                <h2>Sign in to Coinbase</h2>
-                <form onSubmit={this.handleSubmit}>
+                <h2 className="header">Sign in to Merkle Money</h2>
+                <div className="account-form">
+                <form className="form-vertical" onSubmit={this.handleSubmit}>
                     <label>Email
                             <input
                             type="text"
@@ -63,9 +64,10 @@ class LoginForm extends React.Component {
                             onChange={this.updateForm('password')}
                         />
                     </label>
-                    <input type="submit" onClick={this.handleSubmit} value="Sign In"/>
-                    <input type="submit" onClick={this.guestLogin} value="Sign In as a Guest"/>
+                    <input className="btn" type="submit" onClick={this.handleSubmit} value="Sign In"/>
+                    <input className="btn" type="submit" onClick={this.guestLogin} value="Sign In as a Guest"/>
                 </form>
+                </div>
                 <p>
                     <Link to='/signup'>Don't have an account?</Link>
                 </p>
