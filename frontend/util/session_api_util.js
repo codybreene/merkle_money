@@ -1,4 +1,4 @@
-// AJAX calls to backend too create user (signup), create session (login), and 
+// AJAX calls to backend to create user (signup), create session (login), and 
 // destroy session (logout)
 
 export const signup = (user) => (

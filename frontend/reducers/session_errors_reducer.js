@@ -8,10 +8,10 @@ const sessionErrorsReducer = (state = [], action) => {
     let nextState = {};
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            nextState["session"] = [];
+            nextState.session = [];
             return nextState;
         case RECEIVE_ERRORS:
-            nextState["session"] = action.errors;
+            nextState.session = action.errors;
             return nextState;
         default:
             return state;
