@@ -26,15 +26,21 @@ const receiveErrors = (errors) => ({
 
 export const signup = (user) => (dispatch) => (
     AuthAPIUtil.signup(user)
-        .then((user) => dispatch(receiveCurrentUser(user)))
+        .then(
+            (user) => dispatch(receiveCurrentUser(user)),
+            (error) => dispatch(receiveErrors(error.responseJSON))
+        )
 )
 
 export const login = (user) => (dispatch) => (
     AuthAPIUtil.login(user)
-        .then((user) => dispatch(receiveCurrentUser(user)))
+        .then(
+            (user) => dispatch(receiveCurrentUser(user)),
+            (error) => dispatch(receiveErrors(error.responseJSON))
+        )
 )
 
 export const logout = () => (dispatch) => (
     AuthAPIUtil.logout()
-        .then( () => dispatch(logoutCurrentUser()))
+        .then(() => dispatch(logoutCurrentUser()))
 )
