@@ -25,7 +25,9 @@ class LoginForm extends React.Component {
     //
     handleSubmit(e) {
         e.preventDefault();
-        this.props.login(this.state);
+        this.props.login(this.state)
+            //then push to history to redirect
+            .then(this.props.history.push('/dashboard'))
     }
 
     // render function that contains the form
