@@ -8,7 +8,6 @@ class SignupForm extends React.Component {
         this.state = {
             email: '',
             password: '',
-            guestEmail: 'codybreen@gmail.com',
             errors: this.props.errors
         };
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -61,7 +60,7 @@ class SignupForm extends React.Component {
                     ))}
                 </div>
             )
-                }
+        }
 }
 
     // render function that contains the form

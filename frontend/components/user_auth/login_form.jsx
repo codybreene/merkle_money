@@ -6,9 +6,9 @@ class LoginForm extends React.Component {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            errors: this.props.errors
         };
-
         this.handleSubmit = this.handleSubmit.bind(this);
         this.guestLogin = this.guestLogin.bind(this);
     }
@@ -28,7 +28,13 @@ class LoginForm extends React.Component {
         e.preventDefault();
         this.props.login(this.state)
             //then push to history to redirect
-            .then(this.props.history.push('/dashboard'))
+            .then(
+                () => this.props.history.push('/dashboard'))
+            .fail(
+                (errors) => this.setState({
+                    errors: errors
+                })
+            )
     }
 
     guestLogin(e) {
@@ -40,10 +46,28 @@ class LoginForm extends React.Component {
             .then(this.props.history.push('/dashboard')))
     }
 
+    renderErrors() {
+        let that = this;
+        if (this.props.errors.length > 0) {
+            setTimeout(() => {
+                // debugger;
+                dispatch(that.props.clearErrors());
+            }, 8000);
+            return (
+                <div id="errors" className="errors">
+                    {this.props.errors.map(error => (
+                        <li>{error}</li>
+                    ))}
+                </div>
+            )
+        }
+    }
+
     // render function that contains the form
     render() {
         return (
             <div className="session">
+                {this.renderErrors()}
                 <h2 className="header">Sign in to Merkle Money</h2>
                 <div className="form-wrapper">
                 <form className="form-area" onSubmit={this.handleSubmit}>
