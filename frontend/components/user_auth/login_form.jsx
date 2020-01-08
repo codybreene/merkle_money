@@ -48,22 +48,22 @@ class LoginForm extends React.Component {
                 <h2 className="header">Sign in to Merkle Money</h2>
                 <div className="account-form">
                 <form className="form-vertical" onSubmit={this.handleSubmit}>
-                    <label>Email
-                            <input
-                            type="text"
+                    <div>
+                        <input
+                            type="email"
                             placeholder="Email"
                             value={this.state.email}
                             onChange={this.updateForm('email')}
                         />
-                    </label>
-                    <label>Password
-                            <input
+                    </div>
+                    <div>
+                        <input
                             type="password"
                             placeholder="Choose password"
                             value={this.state.password}
                             onChange={this.updateForm('password')}
                         />
-                    </label>
+                    </div>
                     <input className="btn" type="submit" onClick={this.handleSubmit} value="Sign In"/>
                     <input className="btn" type="submit" onClick={this.guestLogin} value="Sign In as a Guest"/>
                 </form>
