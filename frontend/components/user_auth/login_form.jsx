@@ -32,7 +32,6 @@ class LoginForm extends React.Component {
     }
 
     guestLogin(e) {
-        debugger;
         e.preventDefault();
         this.setState({
             email: 'codybreene@gmail.com',

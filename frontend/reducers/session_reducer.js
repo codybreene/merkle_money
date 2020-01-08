@@ -12,7 +12,6 @@ export const sessionReducer = (oldState = _nullState, action) => {
     let nextState = Object.assign({}, oldState);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            debugger;
             nextState.id = action.user.id;
             return nextState;
         case LOGOUT_CURRENT_USER:
