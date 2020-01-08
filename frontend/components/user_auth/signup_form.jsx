@@ -95,7 +95,7 @@ class SignupForm extends React.Component {
                         </div>
                     </form>
                     </div>
-                    <div>
+                    <div className="account-extras">
                         Already have a Coinbase account?
                         <Link to='/signin'>Log in</Link>
                     </div>
