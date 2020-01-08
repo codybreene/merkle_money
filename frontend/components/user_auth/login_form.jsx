@@ -45,9 +45,9 @@ class LoginForm extends React.Component {
         return (
             <div className="session">
                 <h2 className="header">Sign in to Merkle Money</h2>
-                <div className="account-form">
-                <form className="form-vertical" onSubmit={this.handleSubmit}>
-                    <div>
+                <div className="form-wrapper">
+                <form className="form-area" onSubmit={this.handleSubmit}>
+                    <div className="email">
                         <input
                             type="email"
                             placeholder="Email"
@@ -55,7 +55,7 @@ class LoginForm extends React.Component {
                             onChange={this.updateForm('email')}
                         />
                     </div>
-                    <div>
+                    <div className="password">
                         <input
                             type="password"
                             placeholder="Choose password"

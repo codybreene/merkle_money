@@ -1,0 +1,24 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0px;
+    height: 42px;
+    background: #1652f0;
+}
+
+.navbar a {
+    display: block;
+    color: rgba(255,255,255,.95);
+    font-weight: 600;
+    text-shadow: none;
+    text-decoration: none;
+    padding: 8px 10px;
+    font-size: 16px;
+    margin: 0 0 0 5px;
+    border-radius: 2px;
+}
+
+.link-home {
+    flex: 2;
+    margin-left: 15px;
+}

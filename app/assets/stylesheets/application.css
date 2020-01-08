@@ -17,7 +17,7 @@
  /* sign in form classes
 */
 
-* {
+/* * {
     background: #1652f0;
     color: #ffffff;
     font-family: 'Lato';
@@ -28,8 +28,7 @@
 }
 
 .navbar div a {
-    display: flex;
-    justify-content: space-around;
+    align-items: center;
 }
 
 
@@ -61,4 +60,4 @@
 
 .btn {
 
-}
+} */
