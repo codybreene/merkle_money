@@ -12,19 +12,19 @@ class NavBar extends React.Component {
             return (
                 // navbar with user logged in
                 <div>
-                    <Link to='/dashboard'>Home</Link>
-                    <Link to='/accounts'>Portfolio</Link>
-                    <Link to='/prices'>Prices</Link>
-                    <Link to='/' onClick={logout}>Logout</Link>
+                    <Link className="link-home" to='/dashboard'>Home</Link>
+                    <Link className="link-accounts" to='/accounts'>Portfolio</Link>
+                    <Link className="link-prices" to='/prices'>Prices</Link>
+                    <Link className="link-logout" to='/' onClick={logout}>Logout</Link>
                 </div>
             )
         } else {
             return (
-                <div>
-                    <Link to='/'>Merkle Money</Link>
-                    <Link to='/accounts'>Portfolio</Link>
-                    <Link to='/signin'>Sign in</Link>
-                    <Link to='/signup'>Get started</Link>
+                <div className="navbar">
+                    <Link className="link-home" to='/'>Merkle Money</Link>
+                    <Link className="link-accounts" to='/accounts'>Portfolio</Link>
+                    <Link className="link-signin" to='/signin'>Sign in</Link>
+                    <Link className="link-signup" to='/signup'>Get started</Link>
                 </div>
             )
         }

@@ -6,9 +6,9 @@ class LoginForm extends React.Component {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            errors: this.props.errors
         };
-
         this.handleSubmit = this.handleSubmit.bind(this);
         this.guestLogin = this.guestLogin.bind(this);
     }
@@ -28,7 +28,13 @@ class LoginForm extends React.Component {
         e.preventDefault();
         this.props.login(this.state)
             //then push to history to redirect
-            .then(this.props.history.push('/dashboard'))
+            .then(
+                () => this.props.history.push('/dashboard'))
+            .fail(
+                (errors) => this.setState({
+                    errors: errors
+                })
+            )
     }
 
     guestLogin(e) {
@@ -40,14 +46,32 @@ class LoginForm extends React.Component {
             .then(this.props.history.push('/dashboard')))
     }
 
+    renderErrors() {
+        let that = this;
+        if (this.props.errors.length > 0) {
+            setTimeout(() => {
+                // debugger;
+                dispatch(that.props.clearErrors());
+            }, 8000);
+            return (
+                <div id="errors" className="errors">
+                    {this.props.errors.map(error => (
+                        <li>{error}</li>
+                    ))}
+                </div>
+            )
+        }
+    }
+
     // render function that contains the form
     render() {
         return (
             <div className="session">
+                {this.renderErrors()}
                 <h2 className="header">Sign in to Merkle Money</h2>
-                <div className="account-form">
-                <form className="form-vertical" onSubmit={this.handleSubmit}>
-                    <div>
+                <div className="form-wrapper">
+                <form className="form-area" onSubmit={this.handleSubmit}>
+                    <div className="email">
                         <input
                             type="email"
                             placeholder="Email"
@@ -55,7 +79,7 @@ class LoginForm extends React.Component {
                             onChange={this.updateForm('email')}
                         />
                     </div>
-                    <div>
+                    <div className="password">
                         <input
                             type="password"
                             placeholder="Choose password"
@@ -63,13 +87,17 @@ class LoginForm extends React.Component {
                             onChange={this.updateForm('password')}
                         />
                     </div>
-                    <input className="btn" type="submit" onClick={this.handleSubmit} value="Sign In"/>
-                    <input className="btn" type="submit" onClick={this.guestLogin} value="Sign In as a Guest"/>
+                    <div className="btns">
+                        <input className="btn" type="submit" onClick={this.handleSubmit} value="Sign In"/>
+                        <input className="btn" type="submit" onClick={this.guestLogin} value="Sign In as a Guest"/>
+                    </div>
                 </form>
                 </div>
-                <p>
-                    <Link to='/signup'>Don't have an account?</Link>
-                </p>
+                <div className="account-extras">
+                    <p>
+                        <Link to='/signup'>Don't have an account?</Link>
+                    </p>
+                </div>
             </div>
         )
     }

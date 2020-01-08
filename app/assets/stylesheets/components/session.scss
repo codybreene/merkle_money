@@ -1,0 +1,114 @@
+body {
+    background: #1652f0;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.errors {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+    border: 1px solid #fbeed5;
+    border-radius: 4px;
+}
+
+.header {
+    margin-bottom: 40px;
+    height: 34px;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.13;
+    text-align: center;
+    color: #fff;
+}
+
+.session {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 40px auto;
+}
+
+.session .form-wrapper .form-area {
+    padding: 32px 24px;
+}
+
+.form-area {
+    background: #fff;
+    -webkit-box-shadow: 0 1px 46px -4px rgba(0,0,0,.28);
+    box-shadow: 0 1px 46px -4px rgba(0,0,0,.28);
+    border-radius: 4px;
+    width: 400px;
+    height: 225px;
+}
+
+.email, .password {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.email input {
+    color: #555;
+    width: 100%;
+    height: 42px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.password input {
+    color: #555;
+    width: 100%;
+    height: 42px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn {
+    color: #fff;
+    padding: 1em 2em;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#1652f0),to(#0d40c6));
+    background-image: -webkit-linear-gradient(#1652f0,#0d40c6);
+    background-image: linear-gradient(#1652f0,#0d40c6);
+    border-color: #137dba;
+    font-size: 11px;
+    text-transform: uppercase;
+    height: 42px;
+    letter-spacing: .05em;
+    border-radius: 2px;
+    -webkit-transition: all .15s ease;
+    transition: all .15s ease;
+}
+
+.form-wrapper {
+    background: #fff;
+    -webkit-box-shadow: 0 1px 46px -4px rgba(0,0,0,.28);
+    box-shadow: 0 1px 46px -4px rgba(0,0,0,.28);
+    border-radius: 4px;
+}
+
+.account-extras {
+    text-align: center;
+    padding: 30px 0 0;
+    font-size: 13px;
+}
+
+.account-extras a {
+    margin-left: 5px;
+}

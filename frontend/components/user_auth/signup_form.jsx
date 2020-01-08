@@ -8,10 +8,10 @@ class SignupForm extends React.Component {
         this.state = {
             email: '',
             password: '',
-            guestEmail: 'codybreen@gmail.com',
-            
+            errors: this.props.errors
         };
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.guestLogin = this.guestLogin.bind(this);
     }
     
     //onChange, update the field in the form so we re-render
@@ -25,41 +25,77 @@ class SignupForm extends React.Component {
 
     //prevent default action of making a get request on submit
     //
-    handleSubmit(e, demo=false) {
+    handleSubmit(e) {
         e.preventDefault();
         this.props.signup(this.state)
-            .then(this.props.history.push('/dashboard'))
+            .then(
+                () => this.props.history.push('/dashboard'))
+            .fail(
+                (errors) => this.setState({
+                    errors: errors
+                })
+            )
     }
+
+    guestLogin(e) {
+        e.preventDefault();
+        this.setState({
+            email: 'codybreene@gmail.com',
+            password: 'password'
+        }, () => this.props.login(this.state)
+            .then(this.props.history.push('/dashboard')))
+    }
+
+    renderErrors() {
+        let that = this;
+        if (this.props.errors.length > 0) {
+            setTimeout(() => {
+                // debugger;
+                dispatch(that.props.clearErrors());
+            }, 8000);
+            return (
+                <div id="errors" className="errors">
+                    {this.props.errors.map(error => (
+                        <li>{error}</li>
+                    ))}
+                </div>
+            )
+        }
+}
 
     // render function that contains the form
     render() {
         return(
-            <div>
-                <h2>
+            <div className="session">
+                {this.renderErrors()}
+                <h2 className="header">
                     <span>Create your account</span>
                 </h2>
-                    <form onSubmit={this.handleSubmit}>
-                        <label>Email
+                    <div className="form-wrapper">
+                    <form className="form-area" onSubmit={this.handleSubmit}>
+                        <div className="email">
                             <input 
-                                type="text"
+                                type="email"
                                 placeholder="Email"
                                 value={this.state.email}
                                 onChange={this.updateForm('email')}
                                 />
-                        </label>
-                        <label>Password
+                        </div>
+                        <div className="password">
                             <input 
                                 type="password"
                                 placeholder="Choose password"
                                 value={this.state.password}
                                 onChange={this.updateForm('password')}
                                 />
-                        </label>
-                        <button onClick={this.handleSubmit}>
-                            <span>Create account</span>
-                        </button>
+                        </div>
+                        <div className="btns">
+                            <input className="btn" type="submit" onClick={this.handleSubmit} value="Create account" />
+                            <input className="btn" type="submit" onClick={this.guestLogin} value="Sign In as a Guest" />
+                        </div>
                     </form>
-                    <div>
+                    </div>
+                    <div className="account-extras">
                         Already have a Coinbase account?
                         <Link to='/signin'>Log in</Link>
                     </div>
