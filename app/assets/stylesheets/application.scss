@@ -14,50 +14,13 @@
  *= require_self
  */
 
- /* sign in form classes
-*/
+// CSS Reset
+@import "base/00-reset.css";
 
-/* * {
-    background: #1652f0;
-    color: #ffffff;
-    font-family: 'Lato';
-}
+// Core
+@import "base/colors.scss";
+@import "base/fonts.scss";
+@import "base/layout.scss";
 
-.navbar div {
-    display: flex;
-}
-
-.navbar div a {
-    align-items: center;
-}
-
-
-
-.session {
-    max-width: 400px;
-    margin: 40px auto;
-}
-
-.header {
-    margin-bottom: 40px;
-    height: 34px;
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 1.13;
-    text-align: center;
-}
-
-.account-form {
-    padding: 32px 24px;
-    font-family: helvetica neue,Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 20px;
-}
-
-.form-vertical {
-
-}
-
-.btn {
-
-} */
+// Components
+@import "components/*";
