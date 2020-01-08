@@ -34,31 +34,33 @@ class SignupForm extends React.Component {
     // render function that contains the form
     render() {
         return(
-            <div>
-                <h2>
+            <div className="session">
+                <h2 className="header">
                     <span>Create your account</span>
                 </h2>
-                    <form onSubmit={this.handleSubmit}>
-                        <label>Email
+                    <div className="form-wrapper">
+                    <form className="form-area" onSubmit={this.handleSubmit}>
+                        <div className="email">
                             <input 
-                                type="text"
+                                type="email"
                                 placeholder="Email"
                                 value={this.state.email}
                                 onChange={this.updateForm('email')}
                                 />
-                        </label>
-                        <label>Password
+                        </div>
+                        <div className="password">
                             <input 
                                 type="password"
                                 placeholder="Choose password"
                                 value={this.state.password}
                                 onChange={this.updateForm('password')}
                                 />
-                        </label>
-                        <button onClick={this.handleSubmit}>
+                        </div>
+                        <button className="btn" onClick={this.handleSubmit}>
                             <span>Create account</span>
                         </button>
                     </form>
+                    </div>
                     <div>
                         Already have a Coinbase account?
                         <Link to='/signin'>Log in</Link>
