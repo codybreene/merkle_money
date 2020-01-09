@@ -73,16 +73,18 @@ class SignupForm extends React.Component {
                 </h2>
                     <div className="form-wrapper">
                     <form className="form-area" onSubmit={this.handleSubmit}>
-                        <div className="email">
+                        <div className="email-container">
                             <input 
+                                id="email"
                                 type="email"
                                 placeholder="Email"
                                 value={this.state.email}
                                 onChange={this.updateForm('email')}
                                 />
                         </div>
-                        <div className="password">
+                        <div className="password-container">
                             <input 
+                                id="password"
                                 type="password"
                                 placeholder="Choose password"
                                 value={this.state.password}

@@ -71,7 +71,7 @@ class LoginForm extends React.Component {
                 <h2 className="header">Sign in to Merkle Money</h2>
                 <div className="form-wrapper">
                 <form className="form-area" onSubmit={this.handleSubmit}>
-                    <div className="email">
+                    <div className="email-container">
                         <input
                             type="email"
                             placeholder="Email"
@@ -79,10 +79,10 @@ class LoginForm extends React.Component {
                             onChange={this.updateForm('email')}
                         />
                     </div>
-                    <div className="password">
+                    <div className="password-container">
                         <input
                             type="password"
-                            placeholder="Choose password"
+                            placeholder="Password"
                             value={this.state.password}
                             onChange={this.updateForm('password')}
                         />

@@ -11,7 +11,7 @@ class NavBar extends React.Component {
         if (currentUser) {
             return (
                 // navbar with user logged in
-                <div>
+                <div className="navbar">
                     <Link className="link-home" to='/dashboard'>Home</Link>
                     <Link className="link-accounts" to='/accounts'>Portfolio</Link>
                     <Link className="link-prices" to='/prices'>Prices</Link>
