@@ -1,0 +1,1 @@
+json.extract! txn, :wallet_id, :amount, :created_at
