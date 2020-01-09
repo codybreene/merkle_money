@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_09_194322) do
+ActiveRecord::Schema.define(version: 2020_01_09_195416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "wallet_id", null: false
+    t.float "amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["wallet_id"], name: "index_transactions_on_wallet_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
