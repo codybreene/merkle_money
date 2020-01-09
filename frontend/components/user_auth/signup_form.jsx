@@ -50,13 +50,12 @@ class SignupForm extends React.Component {
         let that = this;
         if (this.props.errors.length > 0) {
             setTimeout(() => {
-                // debugger;
                 dispatch(that.props.clearErrors());
             }, 8000);
             return (
                 <div id="errors" className="errors">
-                    {this.props.errors.map(error => (
-                        <li>{error}</li>
+                    {this.props.errors.map((error, i) => (
+                        <li key={i}>{error}</li>
                     ))}
                 </div>
             )

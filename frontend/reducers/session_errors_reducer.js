@@ -6,7 +6,7 @@ import {
 
 const sessionErrorsReducer = (state = [], action) => {
     Object.freeze(state);
-    let nextState = {};
+    let nextState = [];
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             nextState.session = [];
@@ -15,10 +15,8 @@ const sessionErrorsReducer = (state = [], action) => {
             nextState = action.errors;
             return nextState;
         case CLEAR_ERRORS:
-            // debugger;
             nextState = [];
             return nextState;
-            // debugger;
         default:
             return state;
     }
