@@ -1,0 +1,1 @@
+json.extract! wallet, :currency, :balance, :created_at, :updated_at
