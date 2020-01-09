@@ -4,7 +4,9 @@
     <title>MerkleMoney</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script type="text/javascript">
+      window.coinAPIKey = "<%= Rails.application.credentials.coin_api[:api_key] %>"
+    </script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
