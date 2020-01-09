@@ -22,7 +22,7 @@ class Api::TransactionsController < ApplicationController
     end
 
     def index
-        @txns = User.find(current_user.id).transactions 
+        @txns = current_user.transactions 
 
         if @txns
             render :index 
