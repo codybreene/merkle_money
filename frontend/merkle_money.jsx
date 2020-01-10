@@ -7,6 +7,7 @@ import {
 } from './actions/session_actions'
 import configureStore from './store/store';
 import Root from './components/root';
+import { fetchCryptos, fetchCrypto } from './util/cryptocurrencies_api_util';
 
 // set up entry file
 
@@ -29,6 +30,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
     window.logout = logout;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+    window.fetchCryptos = fetchCryptos;
+    window.fetchCrypto = fetchCrypto;
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store}/>, root)
 })
