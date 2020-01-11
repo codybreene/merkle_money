@@ -97,7 +97,7 @@ class SignupForm extends React.Component {
                     </form>
                     </div>
                     <div className="account-extras">
-                        Already have a Coinbase account?
+                        Already have a Merkle Money account?
                         <Link to='/signin'>Log in</Link>
                     </div>
             </div>

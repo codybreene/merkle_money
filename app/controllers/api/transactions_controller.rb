@@ -33,6 +33,6 @@ class Api::TransactionsController < ApplicationController
 
     private
     def txn_params
-        params.require(txn).permit(:wallet_id, :amount)
+        params.require(:txn).permit(:wallet_id, :amount)
     end
 end

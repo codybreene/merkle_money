@@ -7,7 +7,7 @@ class NavBar extends React.Component {
     }
 
     render() {
-        const { currentUser, logout} = this.props
+        const { currentUser, logout, trade} = this.props
         if (currentUser) {
             return (
                 // navbar with user logged in
@@ -15,6 +15,7 @@ class NavBar extends React.Component {
                     <Link className="link-home" to='/dashboard'>Home</Link>
                     <Link className="link-accounts" to='/accounts'>Portfolio</Link>
                     <Link className="link-prices" to='/prices'>Prices</Link>
+                    {trade}
                     <Link className="link-logout" to='/' onClick={logout}>Logout</Link>
                 </div>
             )

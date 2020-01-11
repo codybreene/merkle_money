@@ -8,6 +8,7 @@ import {
 import configureStore from './store/store';
 import Root from './components/root';
 import { fetchCryptos, fetchCrypto } from './actions/crypto_actions';
+import { createTxn } from './actions/txn_actions';
 
 // set up entry file
 
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
     window.dispatch = store.dispatch;
     window.fetchCryptos = fetchCryptos;
     window.fetchCrypto = fetchCrypto;
+    window.createTxn = createTxn
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store}/>, root)
 })
