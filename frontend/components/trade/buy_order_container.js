@@ -11,11 +11,7 @@ const mapStateToProps = ({session}) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     createTxn: (txn) => dispatch(createTxn(txn)),
-    otherForm: (
-        <button onClick={ () => dispatch(openModal('sell'))}>
-            Sell
-        </button>
-    )
+    openModal: (formType) => dispatch(openModal(formType))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderForm)
