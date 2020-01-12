@@ -9,12 +9,13 @@ class OrderForm extends React.Component {
             currency: 'Bitcoin',
             method: 'USD Wallet'
         }
+        this.checkValidAmt = this.checkValidAmt.bind(this);
     }
 
     updateTxn(field) {
+        console.log(this.state)
         return (e) => {
             this.updateInputSize()
-            this.checkAmt()
             this.setState({
                 [field]: e.currentTarget.value
             })
@@ -31,9 +32,8 @@ class OrderForm extends React.Component {
         }
     }
 
-    checkAmt() {
+    checkValidAmt() {
         return (e) => {
-            debugger;
             if ($('.amt-float').val() > 9999
                 && e.keyCode !== 46 // keycode for delete
                 && e.keyCode !== 8 // keycode for backspace
@@ -43,11 +43,20 @@ class OrderForm extends React.Component {
                 this.renderErrors()
                 $('.amt-float').val(this.state.amount);
             }
+            else if (
+                !(e.keyCode >= 48 && e.keyCode <= 57) // non-numeric
+                && e.keyCode !== 46 // keycode for delete
+                && e.keyCode !== 8 // keycode for backspace
+             ) {
+                e.preventDefault()
+                this.renderErrors()
+            }
         }
     }
 
     renderErrors() {
-        //to render errors
+        console.log("this should render errors when I write it...")
+        return null
     }
 
     render() {
@@ -63,10 +72,9 @@ class OrderForm extends React.Component {
                         <span className="amt-wrapper">
                             <input 
                                 className="amt-float" 
-                                type="numeric" 
                                 placeholder="0" 
+                                onKeyDown={this.checkValidAmt()}
                                 onChange={this.updateTxn('amount')}
-                                onKeyDown={this.checkAmt()}
                                 value={this.state.amount}
                             />
                         </span>
