@@ -26,6 +26,7 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
+    border-radius: 5px;
 }
 
 .tabs {
@@ -65,6 +66,39 @@
 .dollar-sign {
     line-height: 1.5;
     font-size: 31px
+}
+
+.opt-selectors {
+    flex-direction: column;
+    display: flex;
+    margin-bottom: 16px;
+    border-color: rgb(236, 239, 241);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+}
+
+.curr-selector {
+    display: flex;
+    cursor: pointer;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 16px;
+}
+
+.pmnt-method {
+    display: flex;
+    cursor: pointer;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 16px;
+    border-top: 1px solid rgb(236, 239, 241);
 }
 
 .txn-btn {
