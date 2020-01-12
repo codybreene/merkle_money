@@ -15,7 +15,7 @@ class NavBar extends React.Component {
                     <Link className="link-home" to='/dashboard'>Home</Link>
                     <Link className="link-accounts" to='/accounts'>Portfolio</Link>
                     <Link className="link-prices" to='/prices'>Prices</Link>
-                    {trade}
+                    <button className="trade-btn">{trade}</button>
                     <Link className="link-logout" to='/' onClick={logout}>Logout</Link>
                 </div>
             )

@@ -14,11 +14,13 @@ const Modal = ({modal, closeModal}) => {
     let component;
     switch (modal) {
         case 'buy':
+            // pass down currency 
             component = <BuyOrderContainer />;
             break;
         case 'sell':
             component = <SellOrderContainer />;
             break;
+        // case 'selectCurrency', component = currency selector, pass in 
         default:
             return null;
     }

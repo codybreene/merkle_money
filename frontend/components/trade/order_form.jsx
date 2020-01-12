@@ -81,7 +81,11 @@ class OrderForm extends React.Component {
                     </div>
                     <div className="modal-options">
                         <div className="opt-selectors">
-                        <div className="curr-selector">Currency selection to go here</div>
+                            <div 
+                                className="curr-selector" 
+                                onClick={() => this.props.openModal('selectCurrency')}>
+                                Currency selection to go here
+                            </div>
                         <div className="pmnt-method">Method of payment to go here</div>
                         </div>
                         <button className="txn-btn" onClick={this.props.createTxn}>{this.props.formType} {this.state.currency}</button>
