@@ -1,4 +1,5 @@
 import React from 'react'
+import { fetchCryptos } from '../../actions/crypto_actions';
 
 class OrderForm extends React.Component {
     constructor(props) {
@@ -10,6 +11,16 @@ class OrderForm extends React.Component {
             method: 'USD Wallet'
         }
         this.checkValidAmt = this.checkValidAmt.bind(this);
+    }
+
+    componentDidMount() {
+        fetchCryptos();
+    }
+
+    handleSubmit() {
+        return (e) => {
+            e.preventDefault();
+        }
     }
 
     updateTxn(field) {
@@ -66,7 +77,7 @@ class OrderForm extends React.Component {
                     <div className="buy-tab" onClick={() => this.props.openModal('buy')}>Buy</div>
                     <div className="sell-tab" onClick={() => this.props.openModal('sell')}>Sell</div>
                 </div>
-                <form className="order-form">
+                <div className="order-form">
                     <div className="amt-container">
                         <span className="dollar-sign">$</span>
                         <span className="amt-wrapper">
@@ -86,11 +97,11 @@ class OrderForm extends React.Component {
                                 onClick={() => this.props.openModal('selectCurrency')}>
                                 Currency selection to go here
                             </div>
-                        <div className="pmnt-method">Method of payment to go here</div>
+                            <div className="pmnt-method">Method of payment to go here</div>
                         </div>
-                        <button className="txn-btn" onClick={this.props.createTxn}>{this.props.formType} {this.state.currency}</button>
+                        <input type="submit" className="txn-btn" value={this.props.formType}/>
                     </div>
-                </form>
+                </div>
             </div>
         )
     }

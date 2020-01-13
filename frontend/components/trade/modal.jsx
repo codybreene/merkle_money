@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 //import buy and sell form containers
 import BuyOrderContainer from './buy_order_container';
 import SellOrderContainer from './sell_order_container';
+import CurrSelectorContainer from './curr_selector_container';
 
 
 const Modal = ({modal, closeModal}) => {
@@ -20,12 +21,15 @@ const Modal = ({modal, closeModal}) => {
         case 'sell':
             component = <SellOrderContainer />;
             break;
-        // case 'selectCurrency', component = currency selector, pass in 
+        case 'selectCurrency':
+            // debugger;
+            component = <CurrSelectorContainer />;
+            break;
         default:
             return null;
     }
     return (
-        <div className="modal-background" onClick={closeModal}>
+        <div className="modal-background" onClick={() => closeModal()}>
             <div className="modal-child" onClick={e => e.stopPropagation()}>
                 {component}
             </div>
