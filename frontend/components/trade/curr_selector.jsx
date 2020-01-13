@@ -18,13 +18,14 @@ class CurrSelector extends React.Component {
             console.log("no currencies")
             return <h1>no currencies to speak of...</h1>;
         } else {
-                return (
-                    <ul>
-                        {Object.values(currencies).map((currency, i) => {
-                            return <CurrSelectorItem key={i} currency={currency}/>
-                        })}
-                    </ul>
-                    )
+            const availableCurrencies = selectAvailableCryptos(currencies)
+            return (
+                <ul>
+                    {Object.values(availableCurrencies).map((currency, i) => {
+                        return <CurrSelectorItem key={i} currency={currency}/>
+                    })}
+                </ul>
+                )
         }
     }
 }
