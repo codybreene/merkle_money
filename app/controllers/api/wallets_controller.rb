@@ -11,7 +11,7 @@ class Api::WalletsController < ApplicationController
     end
 
     def show
-        @wallet = Wallet.find(params[:id])
+        @wallet = User.find(current_user.id).find(params[:id])
 
         if @wallet
             render json: @wallet

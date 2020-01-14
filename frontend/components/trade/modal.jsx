@@ -1,11 +1,10 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-//import buy and sell form containers
 import BuyOrderContainer from './buy_order_container';
 import SellOrderContainer from './sell_order_container';
 import CurrSelectorContainer from './curr_selector_container';
-
+import PreviewOrderContainer from './preview_order_container';
 
 const Modal = ({modal, closeModal}) => {
 
@@ -15,15 +14,16 @@ const Modal = ({modal, closeModal}) => {
     let component;
     switch (modal) {
         case 'buy':
-            // pass down currency 
             component = <BuyOrderContainer />;
             break;
         case 'sell':
             component = <SellOrderContainer />;
             break;
         case 'selectCurrency':
-            // debugger;
             component = <CurrSelectorContainer />;
+            break;
+        case 'previewOrder':
+            component = <PreviewOrderContainer />;
             break;
         default:
             return null;

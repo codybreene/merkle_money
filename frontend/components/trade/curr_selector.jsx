@@ -27,7 +27,7 @@ class CurrSelector extends React.Component {
                                     openModal={openModal} 
                                     currency={currency}
                                     setCurrency={setCurrency}
-                                    />
+                                />
                     })}
                 </ul>
                 )

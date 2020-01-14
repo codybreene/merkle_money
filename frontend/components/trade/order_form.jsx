@@ -14,7 +14,8 @@ class OrderForm extends React.Component {
     }
 
     componentDidMount() {
-        fetchCryptos();
+        debugger;
+        if (!this.state.currency) this.props.fetchBitcoin()
     }
 
     convertToUsd() {
@@ -30,6 +31,7 @@ class OrderForm extends React.Component {
     handleSubmit() {
         return (e) => {
             e.preventDefault();
+            this.props.openModal('previewOrder')
         }
     }
 
@@ -44,7 +46,6 @@ class OrderForm extends React.Component {
     }
 
     updateInputSize() {
-        // debugger;
         if ($('.amt-float').val().length === 0) {
             $('.amt-float').css('width', 40)
         } else {
@@ -101,14 +102,18 @@ class OrderForm extends React.Component {
                     </div>
                     <div className="modal-options">
                         <div className="opt-selectors">
-                            <div 
+                            <div
                                 className="curr-selector" 
                                 onClick={() => this.props.openModal('selectCurrency')}>
                                 Currency selection to go here
                             </div>
                             <div className="pmnt-method">Method of payment to go here</div>
                         </div>
-                        <input type="submit" className="txn-btn" value={this.props.formType}/>
+                        <input 
+                            type="submit" 
+                            className="txn-btn" 
+                            value={this.props.formType} 
+                            onClick={this.handleSubmit()}/>
                     </div>
                 </div>
             </div>

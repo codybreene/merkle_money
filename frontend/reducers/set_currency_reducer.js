@@ -1,11 +1,14 @@
 import { SET_CURRENCY } from '../actions/ set_currency_actions';
+import { RECEIVE_BITCOIN } from '../actions/crypto_actions';
 
 const setCurrencyReducer = (state = null, action) => {
     switch (action.type) {
         case SET_CURRENCY:
-            return action.currency.name;
+            return action.currency;
+        case RECEIVE_BITCOIN:
+            return action.bitcoin;
         default:
-            return "Bitcoin";
+            return state;
     }
 }
 

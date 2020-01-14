@@ -3,6 +3,7 @@ import * as CryptoAPIUtil from '../util/cryptocurrencies_api_util'
 // action constants
 
 export const RECEIVE_CRYPTO = "RECEIVE_CRYPTO";
+export const RECEIVE_BITCOIN = "RECEIVE_BITCOIN";
 export const RECEIVE_CRYPTOS = "RECEIVE_CRYPTOS";
 export const RECEIVE_CRYPTO_ERRORS = "RECEIVE_ERRORS";
 
@@ -11,6 +12,11 @@ export const RECEIVE_CRYPTO_ERRORS = "RECEIVE_ERRORS";
 export const receiveCrypto = (crypto) => ({
     type: RECEIVE_CRYPTO,
     crypto
+})
+
+export const receiveBitcoin = (bitcoin) => ({
+    type: RECEIVE_BITCOIN,
+    bitcoin
 })
 
 export const receiveCryptos = (cryptos) => ({
@@ -31,6 +37,14 @@ export const fetchCrypto = (crypto) => dispatch => (
             (crypto) => dispatch(receiveCrypto(crypto)),
             (errors) => dispatch(receiveErrors(errors))
             )
+)
+
+export const fetchBitcoin = () => dispatch => (
+    CryptoAPIUtil.fetchBitcoin()
+        .then(
+            (bitcoin) => dispatch(receiveBitcoin(bitcoin)),
+            (errors) => dispatch(receiveErrors(errors))
+        )
 )
 
 export const fetchCryptos = () => dispatch => (
