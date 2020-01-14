@@ -1,7 +1,7 @@
 import React from 'react';
 import CurrSelectorItem from './curr_selector_item';
 // import { fetchCryptos } from '../../actions/crypto_actions';
-import selectAvailableCryptos from '../../reducers/selectors';
+import {selectAvailableCryptos} from '../../reducers/selectors';
 
 class CurrSelector extends React.Component {
     constructor(props) {

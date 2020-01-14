@@ -6,7 +6,7 @@ const setCurrencyReducer = (state = null, action) => {
         case SET_CURRENCY:
             return action.currency;
         case RECEIVE_BITCOIN:
-            return action.bitcoin;
+            return action.bitcoin[0];
         default:
             return state;
     }

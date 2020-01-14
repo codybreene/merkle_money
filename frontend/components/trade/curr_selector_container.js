@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
-import selectAvailableCryptos from  '../../reducers/selectors'
+import {selectAvailableCryptos} from  '../../reducers/selectors'
 import CurrSelector from './curr_selector';
 import { fetchCryptos } from '../../actions/crypto_actions';
 import { setCurrency } from '../../actions/ set_currency_actions';

@@ -9,11 +9,11 @@ export const cryptoReducer = (oldState = {}, action) => {
     switch (action.type) {
         case RECEIVE_CRYPTOS:
             Object.values(action.cryptos).map(crypto => {
-                nextState[crypto.market_cap_rank] = crypto
+                nextState[crypto.symbol] = crypto
             })
             return nextState;
         case RECEIVE_CRYPTO:
-            nextState[action.crypto.market_cap_rank] = action.crypto
+            nextState[action.crypto.symbol] = action.crypto
             return nextState
         default:
             return oldState;

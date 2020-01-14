@@ -1,7 +1,7 @@
 
 // select available cryptos from 
 
-const selectAvailableCryptos = (allCryptos) => {
+export const selectAvailableCryptos = (allCryptos) => {
     const availableCryptos = [
         "bitcoin", "bitcoin-cash", "ethereum", "ethereum-classic", "litecoin", 
         "0x", "usd-coin", "basic-attention-token","ripple", "augur", "stellar", 
@@ -17,4 +17,16 @@ const selectAvailableCryptos = (allCryptos) => {
     return selected
 }
 
-export default selectAvailableCryptos;
+export const selectCurrWallet = (wallets, selectedCurrency) => {
+    let currWallet = {};
+    if (Object.values(wallets).length > 0 && selectedCurrency) {
+        Object.values(wallets).forEach(wallet => {
+            // debugger;
+            if (wallet.currency === selectedCurrency.symbol) {
+                currWallet = wallet
+            }
+        })
+    }
+    return currWallet
+}
+

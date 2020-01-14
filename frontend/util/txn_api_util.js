@@ -8,5 +8,5 @@ export const createTxn = (txn) => (
     })
 )
 
-// get transaction for user to display in recent activity
+// get transactions for user to display in recent activity
 
