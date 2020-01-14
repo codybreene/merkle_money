@@ -6,6 +6,7 @@ import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({session}) => ({
     userId: session.id,
+    selectedCurrency: ui.selectedCurrency,
     formType: 'sell'
 })
 

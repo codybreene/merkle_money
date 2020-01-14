@@ -4,8 +4,9 @@ import OrderForm from './order_form';
 import { createTxn } from '../../actions/txn_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 
-const mapStateToProps = ({session}) => ({
+const mapStateToProps = ({session, ui}) => ({
     userId: session.id,
+    selectedCurrency: ui.selectedCurrency,
     formType: 'buy'
 })
 

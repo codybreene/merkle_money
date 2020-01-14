@@ -13,7 +13,7 @@ class CurrSelector extends React.Component {
     }
 
     render() {
-        const {currencies} = this.props
+        const {currencies, openModal, setCurrency} = this.props
         if (Object.keys(currencies).length === 0) {
             console.log("no currencies")
             return <h1>no currencies to speak of...</h1>;
@@ -22,7 +22,12 @@ class CurrSelector extends React.Component {
             return (
                 <ul>
                     {Object.values(availableCurrencies).map((currency, i) => {
-                        return <CurrSelectorItem key={i} currency={currency}/>
+                        return <CurrSelectorItem 
+                                    key={i} 
+                                    openModal={openModal} 
+                                    currency={currency}
+                                    setCurrency={setCurrency}
+                                    />
                     })}
                 </ul>
                 )

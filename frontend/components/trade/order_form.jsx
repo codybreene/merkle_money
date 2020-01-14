@@ -7,7 +7,7 @@ class OrderForm extends React.Component {
         this.state = {
             type: '',
             amount: '',
-            currency: 'Bitcoin',
+            currency: this.props.selectedCurrency,
             method: 'USD Wallet'
         }
         this.checkValidAmt = this.checkValidAmt.bind(this);
@@ -15,6 +15,16 @@ class OrderForm extends React.Component {
 
     componentDidMount() {
         fetchCryptos();
+    }
+
+    convertToUsd() {
+        //to convert crypto to USD (for sale)
+        return null
+    }
+
+    convertToCrypto(currency) {
+        //to convert USD to crypto (for purchase)
+        return null
     }
 
     handleSubmit() {
@@ -49,7 +59,6 @@ class OrderForm extends React.Component {
                 && e.keyCode !== 46 // keycode for delete
                 && e.keyCode !== 8 // keycode for backspace
             ) {
-                console.log("testing")
                 e.preventDefault();
                 this.renderErrors()
                 $('.amt-float').val(this.state.amount);
