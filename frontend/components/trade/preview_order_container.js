@@ -9,7 +9,8 @@ const mapStateToProps = ({ui, session}) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    createTxn: (txn) => dispatch(createTxn(txn))
+    createTxn: (txn) => dispatch(createTxn(txn)),
+    createWallet: (wallet) => dispatch(createWallet(wallet))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PreviewOrder);

@@ -10,6 +10,33 @@ class PreviewOrder extends React.Component {
             method: 'USD Wallet'
         }
     }
+
+    handleSubmit() {
+        return(e) => {
+            this.executeTxn()
+            this.createWallet()
+            this.updateWallet()
+        }
+    }
+
+    executeTxn() {
+        const txn = {
+            wallet_id: this.props.selectCurrWallet.id,
+            currency: this.props.selectedCurrency,
+        }
+        // this.props.createTxn(txn);
+    }
+
+    createWallet() {
+        //createWallet if one doesn't exist
+        return null
+    }
+
+    updateWallet() {
+        //updateWallet if it does exist
+        return null
+    }
+
     render() {
         return (
             <div className="preview-container">
@@ -43,7 +70,7 @@ class PreviewOrder extends React.Component {
                         </div>
                     </div>
                     <div>
-
+                        <button onClick={this.handleSubmit()}></button>
                     </div>
                 </div>
                 <div className="preview-footer">

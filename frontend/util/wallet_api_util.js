@@ -7,3 +7,11 @@ export const fetchWallets = () => (
         method: 'get'
     })
 )
+
+export const createWallet = (wallet) => (
+    $.ajax({
+        url: '/api/wallets',
+        method: 'post',
+        data: { wallet }
+    })
+)

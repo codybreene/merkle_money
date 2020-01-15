@@ -23,21 +23,33 @@ class OrderForm extends React.Component {
         }
     }
 
-    convertToUsd(balance, convRate) {
-        return (balance*convRate).toFixed(2)
+    convertToUsd(amt, price) {
+        return (amt*price).toFixed(2)
     }
 
-    convertToCrypto() {
+    convertToCrypto(amt, price) {
         //to convert USD to crypto (for purchase)
-        return null
+        return (amt / price).toFixed(6)
     }
 
     handleSubmit() {
         return (e) => {
             e.preventDefault();
-            this.props.setCurrentOrder(this.state)
-            this.props.openModal('previewOrder')
+            this.props.setCurrentOrder(this.getCurrOrder());
+            this.props.openModal('previewOrder');
         }
+    }
+
+    getCurrOrder() {
+        const order = {
+            wallet_id: this.props.selectCurrWallet.id,
+            currency: this.props.selectedCurrency.symbol,
+            amount: this.convertToCrypto(
+                this.state.amount, 
+                this.props.selectedCurrency.current_price
+                )
+        }
+        return order;
     }
 
     updateTxn(field) {
