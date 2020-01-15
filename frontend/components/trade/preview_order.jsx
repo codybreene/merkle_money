@@ -3,6 +3,7 @@ import React from 'react';
 class PreviewOrder extends React.Component {
     constructor(props) {
         super(props)
+        //revisit whether you need local state here
         this.state = {
             type: '',
             amount: '',
@@ -12,29 +13,54 @@ class PreviewOrder extends React.Component {
     }
 
     handleSubmit() {
+        // exec
         return(e) => {
-            this.executeTxn()
-            this.createWallet()
-            this.updateWallet()
+            this.handleWallet()
         }
     }
 
     executeTxn() {
+        const {currentOrder, createTxn, selectCurrWallet} = this.props;
+        debugger
         const txn = {
-            wallet_id: this.props.selectCurrWallet.id,
-            currency: this.props.selectedCurrency,
+            wallet_id: selectCurrWallet.id,
+            amount: currentOrder.amount
         }
-        // this.props.createTxn(txn);
+        createTxn(txn)
     }
 
-    createWallet() {
-        //createWallet if one doesn't exist
-        return null
+    handleWallet() {
+        const {currentOrder, selectedCurrency, userId, createWallet} = this.props;
+        if(currentOrder.wallet_id === undefined) {
+            const wallet = {
+                user_id: userId,
+                currency: selectedCurrency.symbol,
+                balance: currentOrder.amount
+            }
+            createWallet(wallet)
+                .then(() => this.executeTxn())
+        } else {
+            this.updateWallet()
+                
+        }
     }
 
     updateWallet() {
-        //updateWallet if it does exist
-        return null
+        const {
+            currentOrder, 
+            selectedCurrency, 
+            userId, 
+            updateWallet,
+            selectCurrWallet
+        } = this.props;
+        const wallet = {
+            id: selectCurrWallet.id,
+            user_id: userId,
+            currency: selectedCurrency.symbol,
+            balance: parseFloat(selectCurrWallet.balance) + parseFloat(currentOrder.amount)
+        };
+        updateWallet(wallet)
+            .then(() => this.executeTxn())
     }
 
     render() {
@@ -70,7 +96,7 @@ class PreviewOrder extends React.Component {
                         </div>
                     </div>
                     <div>
-                        <button onClick={this.handleSubmit()}></button>
+                        <button onClick={this.handleSubmit()}>Buy now</button>
                     </div>
                 </div>
                 <div className="preview-footer">

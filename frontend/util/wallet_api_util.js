@@ -15,3 +15,12 @@ export const createWallet = (wallet) => (
         data: { wallet }
     })
 )
+
+export const updateWallet = (wallet) => {
+    return $.ajax({
+        url: `/api/wallets/${wallet.id}`,
+        method: 'patch',
+        data: { wallet }
+    })
+}
+

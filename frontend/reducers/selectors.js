@@ -21,7 +21,6 @@ export const selectCurrWallet = (wallets, selectedCurrency) => {
     let currWallet = {};
     if (Object.values(wallets).length > 0 && selectedCurrency) {
         Object.values(wallets).forEach(wallet => {
-            // debugger;
             if (wallet.currency === selectedCurrency.symbol) {
                 currWallet = wallet
             }

@@ -17,8 +17,8 @@ class OrderForm extends React.Component {
 
     componentDidMount() {
         const {fetchBitcoin, fetchWallets, fetchCryptos} = this.props
+        fetchCryptos();
         if (!this.state.currency && Object.values(this.props.wallets).length === 0) {
-                fetchCryptos();
                 fetchBitcoin().then(() => fetchWallets());
         }
     }
@@ -28,8 +28,12 @@ class OrderForm extends React.Component {
     }
 
     convertToCrypto(amt, price) {
-        //to convert USD to crypto (for purchase)
-        return (amt / price).toFixed(6)
+        debugger;
+        if (this.props.formType === 'sell') { 
+            return -1*(amt / price).toFixed(6)
+        } else {
+            return (amt / price).toFixed(6)
+        }
     }
 
     handleSubmit() {
@@ -43,7 +47,6 @@ class OrderForm extends React.Component {
     getCurrOrder() {
         const order = {
             wallet_id: this.props.selectCurrWallet.id,
-            currency: this.props.selectedCurrency.symbol,
             amount: this.convertToCrypto(
                 this.state.amount, 
                 this.props.selectedCurrency.current_price
@@ -98,7 +101,7 @@ class OrderForm extends React.Component {
     }
 
     render() {
-        console.log(this.props.formType)
+        // console.log(this.props.formType)
         // if (this.state.formType === 'buy') {
         //     return null
         // } else if (this.state.formType === 'sell') {

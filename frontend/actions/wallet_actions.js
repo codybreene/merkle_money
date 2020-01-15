@@ -7,12 +7,10 @@ export const RECEIVE_WALLET = "RECEIVE_WALLET";
 
 // regular action creator
 
-const receiveWallets = (wallets) => {
-    return {
-        type: RECEIVE_WALLETS,
-        wallets
-    }
-}
+const receiveWallets = (wallets) => ({
+    type: RECEIVE_WALLETS,
+    wallets
+})
 
 const receiveWallet = (wallet) => ({
     type: RECEIVE_WALLET,
@@ -23,7 +21,7 @@ const receiveWallet = (wallet) => ({
 
 export const createWallet = (wallet) => (dispatch) => (
     WalletAPIUtil.createWallet(wallet)
-        .then( (wallet) => dispatch(receiveWallet(wallet)))
+        .then((wallet) => dispatch(receiveWallet(wallet)))
 )
 
 export const fetchWallets = () => (dispatch) => (
@@ -31,7 +29,7 @@ export const fetchWallets = () => (dispatch) => (
         .then((wallets) => dispatch(receiveWallets(wallets)))
 )
 
-export const updateWallet = (walletId) => (dispatch) => (
-    WalletAPIUtil.updateWallet(walletId)
-        .then( (wallet) => dispatch(receiveWallet(wallet)) )
+export const updateWallet = (wallet) => (dispatch) => (
+    WalletAPIUtil.updateWallet(wallet)
+        .then((wallet) => dispatch(receiveWallet(wallet)))
 )

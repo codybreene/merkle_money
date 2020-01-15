@@ -11,7 +11,7 @@ class Api::WalletsController < ApplicationController
     end
 
     def show
-        @wallet = User.find(current_user.id).find(params[:id])
+        @wallet = current_user.wallets.find(params[:id])
 
         if @wallet
             render json: @wallet
@@ -21,7 +21,7 @@ class Api::WalletsController < ApplicationController
     end
 
     def index
-        @wallets = User.find(current_user.id).wallets
+        @wallets = current_user.wallets
 
         if @wallets
             render json: @wallets
@@ -32,9 +32,9 @@ class Api::WalletsController < ApplicationController
     end
 
     def update
-        @wallet = current_user.transactions.find(params[:id])
+        @wallet = current_user.wallets.find(params[:id])
 
-        if @post.update(wallet_params)
+        if @wallet.update(wallet_params)
             render json: @wallet
         else
             render json: @wallet.errors.full_messages
