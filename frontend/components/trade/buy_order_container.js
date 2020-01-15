@@ -7,19 +7,18 @@ import { setCurrency } from '../../actions/ set_currency_actions';
 import { fetchCryptos, fetchBitcoin } from '../../actions/crypto_actions';
 import { fetchWallets } from '../../actions/wallet_actions';
 import { selectCurrWallet } from '../../reducers/selectors';
+import { setCurrentOrder } from '../../actions/current_order_actions';
 
-const mapStateToProps = ({session, ui, entities}) => {
-    // debugger;
-    return {
+const mapStateToProps = ({session, ui, entities}) => ({
     userId: session.id,
     selectedCurrency: ui.selectedCurrency,
     currencies: entities.currencies,
     defaultCurrency: entities.defaultCurrency,
     wallets: entities.wallets,
+    // currWallet: entities.wallets[ui.selectedCurrency["symbol"]],
     selectCurrWallet: selectCurrWallet(entities.wallets, ui.selectedCurrency),
     formType: 'buy'
-}
-}
+})
 
 const mapDispatchToProps = (dispatch) => ({
     createTxn: (txn) => dispatch(createTxn(txn)),
@@ -27,7 +26,8 @@ const mapDispatchToProps = (dispatch) => ({
     setCurrency: (currency) => dispatch(setCurrency(currency)),
     fetchCryptos: () => dispatch(fetchCryptos()),
     fetchBitcoin: () => dispatch(fetchBitcoin()),
-    fetchWallets: () => dispatch(fetchWallets())
+    fetchWallets: () => dispatch(fetchWallets()),
+    setCurrentOrder: (order) => dispatch(setCurrentOrder(order))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(OrderForm)

@@ -6,7 +6,7 @@ const walletsReducer = (oldState = {}, action) => {
     switch (action.type) {
         case RECEIVE_WALLETS:
             Object.values(action.wallets).map(wallet => {
-                nextState[wallet.id] = wallet
+                nextState[wallet.currency] = wallet
             })
             return nextState;
         default:

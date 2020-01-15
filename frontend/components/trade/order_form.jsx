@@ -6,10 +6,10 @@ class OrderForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            type: '',
+            type: this.props.formType,
             amount: '',
             currency: this.props.selectedCurrency,
-            currWallet: '',
+            currWallet: this.props.selectCurrWallet,
             method: 'USD Wallet'
         }
         this.checkValidAmt = this.checkValidAmt.bind(this);
@@ -19,14 +19,9 @@ class OrderForm extends React.Component {
         const {fetchBitcoin, fetchWallets, fetchCryptos} = this.props
         if (!this.state.currency && Object.values(this.props.wallets).length === 0) {
                 fetchCryptos();
-                fetchBitcoin().then(() => fetchWallets());   
+                fetchBitcoin().then(() => fetchWallets());
         }
-    //    fetchWallets()
-    //     if (this.state.currency && Object.values(this.props.wallets).length > 0) {
-    //         debugger;
-    //         this.setState({
-    //             currWallet: selectCurrWallet(this.props.wallets, selectedCurrency)
-            }
+    }
 
     convertToUsd(balance, convRate) {
         return (balance*convRate).toFixed(2)
@@ -40,6 +35,7 @@ class OrderForm extends React.Component {
     handleSubmit() {
         return (e) => {
             e.preventDefault();
+            this.props.setCurrentOrder(this.state)
             this.props.openModal('previewOrder')
         }
     }
@@ -90,15 +86,21 @@ class OrderForm extends React.Component {
     }
 
     render() {
+        console.log(this.props.formType)
+        // if (this.state.formType === 'buy') {
+        //     return null
+        // } else if (this.state.formType === 'sell') {
+        //     return null
+        // } else if (this.state.formType === 'previewBuy') {
+        //     return null
+        // }
+
         const currSym = this.props.selectedCurrency ? this.props.selectedCurrency.symbol : null
-        const wallBalance = this.props.selectCurrWallet ? this.props.selectCurrWallet.balance : null
-        const currPrice = this.props.currencies['btc'] ? this.props.currencies['btc'].current_price : null
+        const currSymCapitalized = this.props.selectedCurrency ? this.props.selectedCurrency.symbol.toUpperCase() : null
+        const wallBalance = Object.values(this.props.selectCurrWallet).length > 0 ? this.props.selectCurrWallet.balance : 0.0
+        const currPrice = this.props.currencies[currSym] ? this.props.currencies[currSym].current_price : null
         const costUsd = this.convertToUsd(wallBalance, currPrice)
-        console.log(currSym)
-        console.log(wallBalance)
-        console.log(this.props.currencies[currSym])
-        console.log(currPrice)
-        console.log(costUsd)
+
         return(
             <div className="order-form-container">
                 <div className="tabs">
@@ -135,10 +137,10 @@ class OrderForm extends React.Component {
                     </div>
                 </div>
                 <div className="order-footer">
-                    <p>{currSym} balance</p>
-                    <div>
-                        <p>{wallBalance}{currSym}</p>
-                        <p>= {costUsd}</p>
+                    <p>{currSymCapitalized} balance</p>
+                    <div className="balance-conversion">
+                        <p>{wallBalance} {currSymCapitalized}</p>
+                        <p className="balance-usd">= ${costUsd}</p>
                     </div>
                 </div>
             </div>
