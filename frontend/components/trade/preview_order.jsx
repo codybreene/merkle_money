@@ -5,7 +5,7 @@ class PreviewOrder extends React.Component {
         super(props)
         //revisit whether you need local state here
         this.state = {
-            type: '',
+            type: 'preview',
             amount: '',
             currency: this.props.selectedCurrency,
             method: 'USD Wallet'
@@ -16,6 +16,7 @@ class PreviewOrder extends React.Component {
         // exec
         return(e) => {
             this.handleWallet()
+            this.toggleConfirmation();
         }
     }
 
@@ -57,19 +58,30 @@ class PreviewOrder extends React.Component {
             id: selectCurrWallet.id,
             user_id: userId,
             currency: selectedCurrency.symbol,
-            balance: parseFloat(selectCurrWallet.balance) + parseFloat(currentOrder.amount)
+            balance: (
+                parseFloat(selectCurrWallet.balance) + parseFloat(currentOrder.amount)
+            ).toFixed(6)
         };
         updateWallet(wallet)
             .then(() => this.executeTxn())
     }
 
+    toggleConfirmation() {
+        if (this.state.type === 'preview') {
+            this.setState({
+                type: 'confirmation'
+            })
+        }
+    }
+
     render() {
+        if (this.state.type === 'preview') {
         return (
             <div className="preview-container">
                 <div className="preview-wrapper">
                     <div className="preview-content">
                         <div className="preview-header">
-                            <div className="preview-back-btn">
+                            <div className="preview-back-btn" onClick={() => this.props.openModal('buy')}>
                                 Back Button
                             </div>
                             <div className="preview-header-title">You are buying</div>
@@ -103,7 +115,14 @@ class PreviewOrder extends React.Component {
 
                 </div>
             </div>
-        )
+        )} else {
+            return (
+                <div>
+                    <h1>You hit the confirmation page!</h1>
+                    <button onClick={() => this.props.openModal('buy')}>Done</button>
+                </div>
+            )
+        }
     }
 }
 

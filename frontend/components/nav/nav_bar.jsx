@@ -11,17 +11,21 @@ class NavBar extends React.Component {
         if (currentUser) {
             return (
                 // navbar with user logged in
-                <div className="navbar">
-                    <Link className="link-home" to='/dashboard'>Home</Link>
-                    <Link className="link-accounts" to='/accounts'>Portfolio</Link>
-                    <Link className="link-prices" to='/prices'>Prices</Link>
-                    <button className="trade-btn">{trade}</button>
-                    <Link className="link-logout" to='/' onClick={logout}>Logout</Link>
+                <div className="navbar-signed-in">
+                    <div className="left-side">
+                        <Link className="link-home" to='/dashboard'>Home</Link>
+                        <Link className="link-accounts" to='/accounts'>Portfolio</Link>
+                        <Link className="link-prices" to='/prices'>Prices</Link>
+                    </div>
+                    <div className="right-side">
+                        <Link className="trade-btn">{trade}</Link>
+                        <Link className="link-logout" to='/' onClick={logout}>Logout</Link>
+                    </div>
                 </div>
             )
         } else {
             return (
-                <div className="navbar">
+                <div className="navbar-signed-out">
                     <Link className="link-home" to='/'>Merkle Money</Link>
                     <Link className="link-accounts" to='/accounts'>Portfolio</Link>
                     <Link className="link-signin" to='/signin'>Sign in</Link>

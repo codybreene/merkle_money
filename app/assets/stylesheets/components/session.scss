@@ -1,9 +1,9 @@
 body {
-    background: #1652f0;
+    background-color: #1652f0;
     font-size: 14px;
     line-height: 20px;
     color: #fff;
-    margin: 25px;
+    padding: 25px;
 }
 
 .container {
@@ -34,6 +34,7 @@ body {
 }
 
 .session {
+    background-color: #1652f0;
     display: flex;
     flex-direction: column;
     align-items: center;

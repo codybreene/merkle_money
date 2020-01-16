@@ -1,6 +1,4 @@
 import React from 'react'
-import { fetchCryptos } from '../../actions/crypto_actions';
-import { selectCurrWallet } from '../../reducers/selectors';
 
 class OrderForm extends React.Component {
     constructor(props) {
@@ -18,6 +16,7 @@ class OrderForm extends React.Component {
     componentDidMount() {
         const {fetchBitcoin, fetchWallets, fetchCryptos} = this.props
         fetchCryptos();
+        this.updateInputSize();
         if (!this.state.currency && Object.values(this.props.wallets).length === 0) {
                 fetchBitcoin().then(() => fetchWallets());
         }
@@ -47,10 +46,12 @@ class OrderForm extends React.Component {
     getCurrOrder() {
         const order = {
             wallet_id: this.props.selectCurrWallet.id,
+            amountUSD: this.state.amount,
             amount: this.convertToCrypto(
                 this.state.amount, 
                 this.props.selectedCurrency.current_price
-                )
+                ),
+            type: this.props.formType
         }
         return order;
     }
@@ -101,20 +102,15 @@ class OrderForm extends React.Component {
     }
 
     render() {
-        // console.log(this.props.formType)
-        // if (this.state.formType === 'buy') {
-        //     return null
-        // } else if (this.state.formType === 'sell') {
-        //     return null
-        // } else if (this.state.formType === 'previewBuy') {
-        //     return null
-        // }
 
         const currSym = this.props.selectedCurrency ? this.props.selectedCurrency.symbol : null
+        const currName = this.props.selectedCurrency ? this.props.selectedCurrency.name : ''
         const currSymCapitalized = this.props.selectedCurrency ? this.props.selectedCurrency.symbol.toUpperCase() : null
         const wallBalance = Object.values(this.props.selectCurrWallet).length > 0 ? this.props.selectCurrWallet.balance : 0.0
         const currPrice = this.props.currencies[currSym] ? this.props.currencies[currSym].current_price : null
         const costUsd = this.convertToUsd(wallBalance, currPrice)
+        const capitalizedFormType = this.props.formType.charAt(0).toUpperCase() + this.props.formType.slice(1)
+        const paymentMethod = (this.props.formType === 'buy') ? 'Pay with' : 'Deposit to'
 
         return(
             <div className="order-form-container">
@@ -140,14 +136,16 @@ class OrderForm extends React.Component {
                             <div
                                 className="curr-selector" 
                                 onClick={() => this.props.openModal('selectCurrency')}>
-                                {this.props.selectedCurrency ? this.props.selectedCurrency.id : null}
+                                {currName}
                             </div>
-                            <div className="pmnt-method">Method of payment to go here</div>
+                            <div className="pmnt-method">{paymentMethod} USD Wallet</div>
                         </div>
                         <input 
                             type="submit" 
                             className="txn-btn" 
-                            value={this.props.formType} 
+                            value={
+                                `${capitalizedFormType} ${currName}`
+                            } 
                             onClick={this.handleSubmit()}/>
                     </div>
                 </div>

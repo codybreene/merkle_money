@@ -15,8 +15,8 @@ const mapStateToProps = ({session, ui, entities}) => ({
     currencies: entities.currencies,
     defaultCurrency: entities.defaultCurrency,
     wallets: entities.wallets,
-    // currWallet: entities.wallets[ui.selectedCurrency["symbol"]],
     selectCurrWallet: selectCurrWallet(entities.wallets, ui.selectedCurrency),
+    defaultOrder: ui.currentOrder,
     formType: 'buy'
 })
 

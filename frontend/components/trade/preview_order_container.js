@@ -3,6 +3,8 @@ import { createTxn } from '../../actions/txn_actions'
 import PreviewOrder from './preview_order';
 import { selectCurrWallet } from '../../reducers/selectors';
 import { createWallet, updateWallet } from '../../actions/wallet_actions';
+import { openModal } from '../../actions/modal_actions';
+
 
 const mapStateToProps = ({ui, session, entities}) => ({
     currentOrder: ui.currentOrder,
@@ -16,6 +18,7 @@ const mapStateToProps = ({ui, session, entities}) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
+    openModal: (modal) => dispatch(openModal(modal)),
     createTxn: (txn) => dispatch(createTxn(txn)),
     createWallet: (wallet) => dispatch(createWallet(wallet)),
     updateWallet: (wallet) => dispatch(updateWallet(wallet))
