@@ -104,6 +104,7 @@ class OrderForm extends React.Component {
     render() {
 
         const currSym = this.props.selectedCurrency ? this.props.selectedCurrency.symbol : null
+        const currLogo = this.props.selectedCurrency ? this.props.selectedCurrency.image : ''
         const currName = this.props.selectedCurrency ? this.props.selectedCurrency.name : ''
         const currSymCapitalized = this.props.selectedCurrency ? this.props.selectedCurrency.symbol.toUpperCase() : null
         const wallBalance = Object.values(this.props.selectCurrWallet).length > 0 ? this.props.selectCurrWallet.balance : 0.0
@@ -115,7 +116,11 @@ class OrderForm extends React.Component {
         return(
             <div className="order-form-container">
                 <div className="tabs">
-                    <div className="buy-tab" onClick={() => this.props.openModal('buy')}>Buy</div>
+                    <div 
+                        className="buy-tab" 
+                        onClick={() => this.props.openModal('buy')}>
+                            Buy
+                    </div>
                     <div className="sell-tab" onClick={() => this.props.openModal('sell')}>Sell</div>
                 </div>
                 <div className="order-form">
@@ -136,9 +141,16 @@ class OrderForm extends React.Component {
                             <div
                                 className="curr-selector" 
                                 onClick={() => this.props.openModal('selectCurrency')}>
-                                {currName}
+                                    <div className="order-action">{capitalizedFormType}</div>
+                                    <div className="selected-curr">
+                                        <img className="order-logo" src={currLogo} alt=""/>
+                                        <div className="curr-name">{currName}</div>
+                                    </div>
                             </div>
-                            <div className="pmnt-method">{paymentMethod} USD Wallet</div>
+                            <div className="pmnt-method">
+                                <div className="pmnt-method-type">{paymentMethod}</div> 
+                                <div className="pmnt-method-wallet">USD Wallet</div> 
+                            </div>
                         </div>
                         <input 
                             type="submit" 

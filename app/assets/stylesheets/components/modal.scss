@@ -15,6 +15,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 11;
+  margin-top: 20px;
 }
 
 .order-form-container {
@@ -26,7 +27,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     border-radius: 5px;
     position: relative;
 }
@@ -34,6 +35,20 @@
 .tabs {
     display: flex;
     justify-content: space-around;
+    cursor: default;
+    font-size: 18px;
+    margin: 5px;
+    min-height: 64px;
+    font-weight: 500;
+}
+
+.sell-tab, .buy-tab {
+    display: flex;
+    align-items: center;
+}
+
+.sell-tab:hover, .buy-tab:hover {
+    color: rgb(22, 82, 240)
 }
 
 .order-form {
@@ -55,10 +70,6 @@
     justify-content: center;
 }
 
-// .amt-wrapper {
-//     width: 40px;
-// }
-
 .amt-float {
     width: 40px;
     font-size: 62px;
@@ -68,6 +79,10 @@
 .dollar-sign {
     line-height: 1.5;
     font-size: 31px
+}
+
+.modal-options {
+    margin-bottom: 5px;
 }
 
 .opt-selectors {
@@ -93,7 +108,6 @@
 
 .pmnt-method {
     display: flex;
-    cursor: pointer;
     -webkit-box-pack: justify;
     justify-content: space-between;
     -webkit-box-align: center;
@@ -139,3 +153,34 @@
 .balance-usd {
     margin-left: 5px;
 }
+
+.order-logo {
+    width: 24px;
+}
+
+.order-action {
+    width: 30%;
+}
+
+.selected-curr {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.curr-name {
+    margin-left: 8px;
+}
+
+.pmnt-method-wallet {
+    width: 70%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.pmnt-method-type {
+    width: 30%
+}
+
+
