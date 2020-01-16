@@ -15,11 +15,11 @@ class CurrSelector extends React.Component {
     render() {
         const {currencies, openModal, setCurrency} = this.props
         if (Object.keys(currencies).length === 0) {
-            console.log("no currencies")
-            return <h1>no currencies to speak of...</h1>;
+            return ''
         } else {
             const availableCurrencies = selectAvailableCryptos(currencies)
             return (
+                <div className="currency-list">
                 <ul>
                     {Object.values(availableCurrencies).map((currency, i) => {
                         return <CurrSelectorItem 
@@ -30,6 +30,7 @@ class CurrSelector extends React.Component {
                                 />
                     })}
                 </ul>
+                </div>
                 )
         }
     }
