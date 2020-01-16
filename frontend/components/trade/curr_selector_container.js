@@ -4,11 +4,12 @@ import {selectAvailableCryptos} from  '../../reducers/selectors'
 import CurrSelector from './curr_selector';
 import { fetchCryptos } from '../../actions/crypto_actions';
 import { setCurrency } from '../../actions/ set_currency_actions';
+import setCurrentOrderReducer from '../../reducers/current_order_reducer';
 
-const mapStateToProps = ({ entities, session }) => ({
+const mapStateToProps = ({ entities, session, ui }) => ({
     currencies: entities.currencies,
     userId: session.id,
-    formType: 'selectCurrency'
+    formType: ui.currentOrder.type
 })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -14,22 +14,29 @@ class CurrSelector extends React.Component {
 
     render() {
         const {currencies, openModal, setCurrency} = this.props
+        const formType = this.props.formType
         if (Object.keys(currencies).length === 0) {
             return ''
         } else {
             const availableCurrencies = selectAvailableCryptos(currencies)
             return (
                 <div className="currency-list">
-                <ul>
-                    {Object.values(availableCurrencies).map((currency, i) => {
-                        return <CurrSelectorItem 
-                                    key={i} 
-                                    openModal={openModal} 
-                                    currency={currency}
-                                    setCurrency={setCurrency}
-                                />
-                    })}
-                </ul>
+                    <div className="curr-selector-header">
+                        <div className="back-btn-container" onClick={() => this.props.openModal(this.props.formType)}>
+                            <div>B</div>
+                        </div>
+                        <span>Select Currency</span>
+                    </div>
+                    <ul>
+                        {Object.values(availableCurrencies).map((currency, i) => {
+                            return <CurrSelectorItem 
+                                        key={i} 
+                                        openModal={openModal} 
+                                        currency={currency}
+                                        setCurrency={setCurrency}
+                                    />
+                        })}
+                    </ul>
                 </div>
                 )
         }

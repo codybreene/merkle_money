@@ -14,8 +14,15 @@ class CurrSelectorItem extends React.Component {
 
     render() {
         const {currency} = this.props
+        const capSymbol = currency.symbol.toUpperCase()
         return (
-            <li onClick={this.currSelectorHandler()}>{currency.name}</li>
+            <li className="curr-item" onClick={this.currSelectorHandler()}>
+                <img className="curr-logo" src={`${currency.image}`} alt=""/>
+                <div className="curr-details">
+                    <div>{currency.name}</div>
+                    <div>{capSymbol}</div>
+                </div>
+            </li>
         )
     }
 }

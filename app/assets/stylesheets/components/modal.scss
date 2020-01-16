@@ -20,7 +20,7 @@
 .order-form-container {
     background: white;
     width: 370px;
-    height: 520px;
+    min-height: 496px;
     box-sizing: border-box;
     color: rgba(17, 51, 83, 0.6);
     display: flex;
@@ -28,6 +28,7 @@
     justify-content: space-between;
     padding: 20px;
     border-radius: 5px;
+    position: relative;
 }
 
 .tabs {

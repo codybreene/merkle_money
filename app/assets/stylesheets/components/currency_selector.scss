@@ -1,7 +1,7 @@
 .currency-list {
     background: white;
     width: 370px;
-    height: 520px;
+    height: 496px;
     box-sizing: border-box;
     color: rgba(17, 51, 83, 0.6);
     display: flex;
@@ -9,4 +9,68 @@
     justify-content: space-between;
     padding: 20px;
     border-radius: 5px;
+    overflow-y: scroll;
+
 }
+
+.curr-logo {
+    border-radius: 50%;
+    width: 35px;
+}
+
+.curr-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 80px;
+}
+
+.curr-selector-header {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+    min-height: 64px;
+    padding-top: 2px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.curr-details {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 12px;
+}
+
+.back-btn-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.curr-selector-header span {
+    width: 85%;
+    justify-content: center;
+    text-align: center;
+    padding-right: 45px;
+}
+
+.back-btn-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 50px;
+}
+
+.curr-item:hover {
+    background-color: rgba(17, 51, 83, 0.02);
+    transition: background-color 0.25s ease 0s;
+}
+
+.curr-item {
+    cursor: default;
+    border-radius: 4px;
+    padding: 12px;
+}
+
