@@ -75,44 +75,46 @@ class PreviewOrder extends React.Component {
     }
 
     render() {
+        const wallBalance = this.props.selectCurrWallet.balance
+        const amount = this.props.currentOrder.amount;
+        const amountUsd = this.props.currentOrder.amountUsd
+        const symbol = this.props.selectedCurrency.symbol.toUpperCase();
+        const price = this.props.selectedCurrency.current_price
         if (this.state.type === 'preview') {
         return (
             <div className="preview-container">
-                <div className="preview-wrapper">
                     <div className="preview-content">
                         <div className="preview-header">
-                            <div className="preview-back-btn" onClick={() => this.props.openModal('buy')}>
-                                Back Button
+                            <div className="back-btn-container" onClick={() => this.props.openModal('buy')}>
+                                <div className="back-btn">Back Button</div>
                             </div>
                             <div className="preview-header-title">You are buying</div>
                         </div>
                         <div className="preview-data">
-                            <h1 className="preview-cypto-amt">Crypto Amount</h1>
+                        <h1 className="preview-crypto-amt">{amount} {symbol}</h1>
                             <div>
                                 <div>Pay with</div> 
                                 <div>{this.state.method}</div> 
                             </div>
                             <div>
                                 <div>Price</div>
-                                <div>{}</div>
+                                <div>${price} / {symbol}</div>
                             </div>
                             <div>
-                                Purchase
-                            </div>
-                            <div>
-                                Coinbase fee
-                            </div>
-                            <div>
-                                Total
+                                <div>Total</div>
+                                <div>${amountUsd}</div>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <button onClick={this.handleSubmit()}>Buy now</button>
+                    <button className="txn-btn" onClick={this.handleSubmit()}>Buy now</button>
                     </div>
-                </div>
-                <div className="preview-footer">
-
+                <div className="order-footer">
+                    <p>{symbol} balance</p>
+                    <div className="balance-conversion">
+                        <p>{amount} {symbol}</p>
+                        <p className="balance-usd">= ${(wallBalance * price).toFixed(2)}</p>
+                    </div>
                 </div>
             </div>
         )} else {

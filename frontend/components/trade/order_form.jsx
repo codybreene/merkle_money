@@ -46,7 +46,7 @@ class OrderForm extends React.Component {
     getCurrOrder() {
         const order = {
             wallet_id: this.props.selectCurrWallet.id,
-            amountUSD: this.state.amount,
+            amountUsd: this.state.amount,
             amount: this.convertToCrypto(
                 this.state.amount, 
                 this.props.selectedCurrency.current_price
