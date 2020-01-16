@@ -4,6 +4,8 @@
     padding: 16px 0px;
     height: 42px;
     background: #1652f0;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .navbar-signed-out a {
@@ -29,6 +31,7 @@
 
 .nav-bar-container-1 {
     border-bottom: 1px solid rgb(236, 239, 241);
+    height: 72px;
 }
 
 .navbar-signed-in {
@@ -41,29 +44,40 @@
     box-sizing: border-box;
     color: rgb(5, 15, 25);
     align-items: center;
+    font-weight: 400;
 }
 
 .right-side {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    padding-right: 25px;
 }
 
 .left-side {
     display: flex;
     justify-content: space-between;
+    padding-left: 25px;
 }
 
 .left-side a {
     display: flex;
     align-items: center;
-    height: 72px;
     margin-right: 32px;
     -webkit-box-align: center;
+}
+.left-side a:hover {
+    color: #1652f0;
 }
 
 .trade-btn {
     min-width: 120px;
+    display: flex;
+    justify-content: center;
+    border: 1px white solid;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin: 0 10px 0 5px;
 }
 
 .mm-logo {
