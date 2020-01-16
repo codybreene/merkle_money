@@ -27,13 +27,16 @@
     border: 2px solid #fff
 }
 
+.nav-bar-container-1 {
+    border-bottom: 1px solid rgb(236, 239, 241);
+}
+
 .navbar-signed-in {
     display: flex;
     justify-content: space-between;
     padding: 16px 0px;
     height: 42px;
     background: #1652f0;
-    border-bottom: 1px solid rgb(236, 239, 241);
     height: 72px;
     box-sizing: border-box;
     color: rgb(5, 15, 25);
@@ -61,4 +64,9 @@
 
 .trade-btn {
     min-width: 120px;
+}
+
+.mm-logo {
+    width: 60px;
+    background: white;
 }
