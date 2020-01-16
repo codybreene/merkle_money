@@ -86,7 +86,7 @@ class PreviewOrder extends React.Component {
                     <div className="preview-content">
                         <div className="preview-header">
                             <div className="back-btn-container" onClick={() => this.props.openModal('buy')}>
-                                <div className="back-btn">Back Button</div>
+                            <div className="back-btn">{String.fromCharCode(8592)}</div>
                             </div>
                             <div className="preview-header-title">You are buying</div>
                         </div>
@@ -102,7 +102,7 @@ class PreviewOrder extends React.Component {
                             </div>
                             <div>
                                 <div>Total</div>
-                                <div>${amountUsd}</div>
+                                <div>${amountUsd*1.00}</div>
                             </div>
                         </div>
                     </div>
