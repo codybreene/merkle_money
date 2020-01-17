@@ -22,7 +22,6 @@ class PreviewOrder extends React.Component {
 
     executeTxn() {
         const {currentOrder, createTxn, selectCurrWallet} = this.props;
-        debugger
         const txn = {
             wallet_id: selectCurrWallet.id,
             amount: currentOrder.amount
@@ -75,11 +74,15 @@ class PreviewOrder extends React.Component {
     }
 
     render() {
-        const wallBalance = this.props.selectCurrWallet.balance
+        const wallBalance = this.props.selectCurrWallet ?  this.props.selectCurrWallet.balance : 0.00
         const amount = this.props.currentOrder.amount;
         const amountUsd = this.props.currentOrder.amountUsd
         const symbol = this.props.selectedCurrency.symbol.toUpperCase();
         const price = this.props.selectedCurrency.current_price
+        const type = this.props.currentOrder.type
+        const typeCapitalized = type.charAt(0).toUpperCase() + type.slice(1)
+        const gerund = this.props.currentOrder.type + "ing"
+
         if (this.state.type === 'preview') {
         return (
             <div className="preview-container">
@@ -88,10 +91,10 @@ class PreviewOrder extends React.Component {
                             <div className="back-btn-container" onClick={() => this.props.openModal('buy')}>
                             <div className="back-btn">{String.fromCharCode(8592)}</div>
                             </div>
-                            <div className="preview-header-title">You are buying</div>
+                            <div className="preview-header-title">You are {gerund}</div>
                         </div>
                         <div className="preview-data">
-                        <h1 className="preview-crypto-amt">{amount} {symbol}</h1>
+                        <h1 className="preview-crypto-amt">{Math.abs(amount)} {symbol}</h1>
                             <div>
                                 <div>Pay with</div> 
                                 <div>{this.state.method}</div> 
@@ -107,32 +110,31 @@ class PreviewOrder extends React.Component {
                         </div>
                     </div>
                     <div>
-                    <button className="txn-btn" onClick={this.handleSubmit()}>Buy now</button>
+                    <button className="txn-btn" onClick={this.handleSubmit()}>{typeCapitalized} now</button>
                     </div>
                 <div className="order-footer">
                     <p>{symbol} balance</p>
                     <div className="balance-conversion">
-                        <p>{amount} {symbol}</p>
+                        <p>{wallBalance} {symbol}</p>
                         <p className="balance-usd">= ${(wallBalance * price).toFixed(2)}</p>
                     </div>
                 </div>
             </div>
         )} else {
             return (
-                <div className="preview-container">
-                <div className="checkmark-container">{}</div>
+                    <div className="confirmation-container">
+                        <div className="checkmark-container">{}</div>
                     <h3>Your order was submitted</h3>
                     <p>We will send you an email when your order status updates.</p>
                     <button className="order-done-btn" onClick={() => this.props.openModal('buy')}>Done</button>
                     <div className="order-footer">
                         <p>{symbol} balance</p>
                         <div className="balance-conversion">
-                            <p>{amount} {symbol}</p>
+                            <p>{wallBalance} {symbol}</p>
                             <p className="balance-usd">= ${(wallBalance * price).toFixed(2)}</p>
                         </div>
                     </div>
-                </div>
-
+                    </div>
             )
         }
     }

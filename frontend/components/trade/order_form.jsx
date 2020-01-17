@@ -27,7 +27,6 @@ class OrderForm extends React.Component {
     }
 
     convertToCrypto(amt, price) {
-        debugger;
         if (this.props.formType === 'sell') { 
             return -1*(amt / price).toFixed(8)
         } else {

@@ -14,7 +14,7 @@ class NavBar extends React.Component {
                 <div className="nav-bar-container-1">
                     <div className="navbar-signed-in">
                         <div className="left-side">
-                            <Link className="mm-logo"><img src={mm_logo} alt=""/></Link>
+                            <Link className="mm-logo" to='/dashboard'><img src={mm_logo} alt=""/></Link>
                             <Link className="link-home" to='/dashboard'>Home</Link>
                             <Link className="link-accounts" to='/accounts'>Portfolio</Link>
                             <Link className="link-prices" to='/prices'>Prices</Link>
