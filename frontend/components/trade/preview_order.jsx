@@ -74,7 +74,7 @@ class PreviewOrder extends React.Component {
     }
 
     render() {
-        const wallBalance = this.props.selectCurrWallet ?  this.props.selectCurrWallet.balance : 0.00
+        const wallBalance = this.props.wallets ? this.props.wallets[this.props.selectedCurrency.symbol].balance : 0.00
         const amount = this.props.currentOrder.amount;
         const amountUsd = this.props.currentOrder.amountUsd
         const symbol = this.props.selectedCurrency.symbol.toUpperCase();
