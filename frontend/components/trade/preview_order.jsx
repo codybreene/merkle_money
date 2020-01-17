@@ -74,10 +74,11 @@ class PreviewOrder extends React.Component {
     }
 
     render() {
-        const wallBalance = Object.values(this.props.wallets).length > 0 ? this.props.wallets[this.props.selectedCurrency.symbol].balance : 0.00
         const amount = this.props.currentOrder.amount;
         const amountUsd = this.props.currentOrder.amountUsd
-        const symbol = this.props.selectedCurrency.symbol.toUpperCase();
+        const symbol = this.props.selectedCurrency.symbol
+        const symbolCap = symbol.toUpperCase();
+        const wallBalance = this.props.wallets[symbol] ? this.props.wallets[symbol].balance : 0.00
         const price = this.props.selectedCurrency.current_price
         const type = this.props.currentOrder.type
         const typeCapitalized = type.charAt(0).toUpperCase() + type.slice(1)
@@ -94,14 +95,14 @@ class PreviewOrder extends React.Component {
                             <div className="preview-header-title">You are {gerund}</div>
                         </div>
                         <div className="preview-data">
-                        <h1 className="preview-crypto-amt">{Math.abs(amount)} {symbol}</h1>
+                        <h1 className="preview-crypto-amt">{Math.abs(amount)} {symbolCap}</h1>
                             <div>
                                 <div>Pay with</div> 
                                 <div>{this.state.method}</div> 
                             </div>
                             <div>
                                 <div>Price</div>
-                                <div>${price} / {symbol}</div>
+                                <div>${price} / {symbolCap}</div>
                             </div>
                             <div>
                                 <div>Total</div>
@@ -113,9 +114,9 @@ class PreviewOrder extends React.Component {
                     <button className="txn-btn" onClick={this.handleSubmit()}>{typeCapitalized} now</button>
                     </div>
                 <div className="order-footer">
-                    <p>{symbol} balance</p>
+                    <p>{symbolCap} balance</p>
                     <div className="balance-conversion">
-                        <p>{wallBalance} {symbol}</p>
+                        <p>{wallBalance} {symbolCap}</p>
                         <p className="balance-usd">= ${(wallBalance * price).toFixed(2)}</p>
                     </div>
                 </div>
@@ -128,9 +129,9 @@ class PreviewOrder extends React.Component {
                     <p>We will send you an email when your order status updates.</p>
                     <button className="order-done-btn" onClick={() => this.props.openModal('buy')}>Done</button>
                     <div className="order-footer">
-                        <p>{symbol} balance</p>
+                        <p>{symbolCap} balance</p>
                         <div className="balance-conversion">
-                            <p>{wallBalance} {symbol}</p>
+                            <p>{wallBalance} {symbolCap}</p>
                             <p className="balance-usd">= ${(wallBalance * price).toFixed(2)}</p>
                         </div>
                     </div>
