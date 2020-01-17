@@ -23,7 +23,7 @@ class CurrSelector extends React.Component {
                 <div className="currency-list">
                     <div className="curr-selector-header">
                         <div className="back-btn-container" onClick={() => this.props.openModal(this.props.formType)}>
-                            <div>B</div>
+                            <div>{String.fromCharCode(8592)}</div>
                         </div>
                         <span>Select Currency</span>
                     </div>

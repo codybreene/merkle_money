@@ -20,7 +20,7 @@ class NavBar extends React.Component {
                             <Link className="link-prices" to='/prices'>Prices</Link>
                         </div>
                         <div className="right-side">
-                            <Link className="trade-btn">{trade}</Link>
+                            {trade}
                             <Link className="link-logout" to='/' onClick={logout}>Logout</Link>
                         </div>
                     </div>

@@ -7,9 +7,13 @@ class Dashboard extends React.Component {
 
     render() {
         return(
-            <div>
-                <h1>this is the dashboard</h1>
-                <h2>welcome to the dashboard zone</h2>
+            <div className="dashboard-container">
+                <div className="wallets-container">
+
+                </div>
+                <div className="recent-txns-container">
+
+                </div>
             </div>
         )
     }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import NavBar from './nav_bar';
 import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
+import { Link } from 'react-router-dom';
 
 const mapStateToProps = ({entities, session}) => ({
     currentUser: entities.users[session.id]
@@ -11,9 +12,9 @@ const mapStateToProps = ({entities, session}) => ({
 const mapDispatchToProps = (dispatch) => ({
     logout: () => dispatch(logout()),
     trade: (
-        <button onClick={() => dispatch(openModal('buy'))}>
+        <Link className="trade-btn" onClick={() => dispatch(openModal('buy'))}>
             Trade
-        </button>
+        </Link>
     )
 })
 

@@ -119,10 +119,20 @@ class PreviewOrder extends React.Component {
             </div>
         )} else {
             return (
-                <div>
-                    <h1>You hit the confirmation page!</h1>
-                    <button onClick={() => this.props.openModal('buy')}>Done</button>
+                <div className="preview-container">
+                <div className="checkmark-container">{}</div>
+                    <h3>Your order was submitted</h3>
+                    <p>We will send you an email when your order status updates.</p>
+                    <button className="order-done-btn" onClick={() => this.props.openModal('buy')}>Done</button>
+                    <div className="order-footer">
+                        <p>{symbol} balance</p>
+                        <div className="balance-conversion">
+                            <p>{amount} {symbol}</p>
+                            <p className="balance-usd">= ${(wallBalance * price).toFixed(2)}</p>
+                        </div>
+                    </div>
                 </div>
+
             )
         }
     }

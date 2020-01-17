@@ -60,7 +60,7 @@
     padding-left: 24px;
     padding-right: 24px;
     padding-bottom: 0px;
-    padding-top: 48px;
+    padding-top: 38px;
     flex: 1 0 0%;
 }
 
@@ -124,6 +124,28 @@
     cursor: pointer;
     font-size: 16px;
     background-color: rgb(22, 82, 240);
+    margin: 0px;
+    border-radius: 4px;
+    transition: all 80ms ease-in-out 0s;
+    padding: 24px;
+    padding-top: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+    padding-left: 24px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(22, 82, 240);
+    border-image: initial;
+    display: flex;
+    justify-content: center;
+}
+
+.order-done-btn {
+    position: relative;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 16px;
     margin: 0px;
     border-radius: 4px;
     transition: all 80ms ease-in-out 0s;
