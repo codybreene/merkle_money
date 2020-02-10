@@ -101,7 +101,7 @@ class OrderForm extends React.Component {
     }
 
     render() {
-
+        
         const currSym = this.props.selectedCurrency ? this.props.selectedCurrency.symbol : null
         const currLogo = this.props.selectedCurrency ? this.props.selectedCurrency.image : ''
         const currName = this.props.selectedCurrency ? this.props.selectedCurrency.name : ''

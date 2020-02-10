@@ -8,5 +8,12 @@ export const createTxn = (txn) => (
     })
 )
 
+export const fetchTxns = () => (
+    $.ajax({
+        url: '/api/transactions',
+        method: 'get'
+    })
+)
+
 // get transactions for user to display in recent activity
 
