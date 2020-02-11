@@ -20,41 +20,41 @@ class PricesTrunc extends React.Component {
           <table className="asset-table">
             <thead >
               <tr className="asset-table-header">
-                <th>
-                  <div>
+                <th className="asset-col-left">
+                  <div className="asset-col-inner">
                     <label>#</label>
                   </div>
                 </th>
                 <th className="asset-col-mid">
-                  <div>
+                  <div className="asset-col-inner">
                     <label>
                       <span>Name</span>
                     </label>
                   </div>
                 </th>
                 <th className="asset-col-mid">
-                  <div>
+                  <div className="asset-col-inner">
                     <label>
                       <span>Price</span> 
                     </label>
                   </div>
                 </th>
                 <th className="asset-col-mid">
-                  <div>
+                  <div className="asset-col-inner">
                     <label>
                       <span>Change</span>
                     </label>
                   </div>
                 </th>
                 <th className="asset-col-mid">
-                  <div>
+                  <div className="asset-col-inner">
                     <label>
                       <span>Chart</span>
                     </label>
                   </div>
                 </th>
-                <th>
-                  <div>
+                <th className="asset-col-right">
+                  <div className="asset-col-inner">
                     <label>
                       <span>Trade</span>
                     </label>
