@@ -16,14 +16,59 @@ class PricesTrunc extends React.Component {
       return null
     } else {
       return (
-      <div>
-        # Name Price Change Chart Trade
-        <ul>
-          {cryptos.map((crypto, index) => (
-             <CryptoDetail key={index} id={index} crypto={crypto}/>
-          ))}
-        </ul>
-      </div >
+        <div className="asset-table-cont">
+          <table className="asset-table">
+            <thead >
+              <tr className="asset-table-header">
+                <th>
+                  <div>
+                    <label>#</label>
+                  </div>
+                </th>
+                <th className="asset-col-mid">
+                  <div>
+                    <label>
+                      <span>Name</span>
+                    </label>
+                  </div>
+                </th>
+                <th className="asset-col-mid">
+                  <div>
+                    <label>
+                      <span>Price</span> 
+                    </label>
+                  </div>
+                </th>
+                <th className="asset-col-mid">
+                  <div>
+                    <label>
+                      <span>Change</span>
+                    </label>
+                  </div>
+                </th>
+                <th className="asset-col-mid">
+                  <div>
+                    <label>
+                      <span>Chart</span>
+                    </label>
+                  </div>
+                </th>
+                <th>
+                  <div>
+                    <label>
+                      <span>Trade</span>
+                    </label>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+              <tbody>
+                {cryptos.map((crypto, index) => (
+                  <CryptoDetail key={index} id={index} crypto={crypto}/>
+                ))}
+              </tbody>
+          </table >
+        </div>
     )
       }
     }
