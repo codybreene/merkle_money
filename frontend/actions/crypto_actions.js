@@ -10,7 +10,6 @@ export const RECEIVE_CRYPTO_ERRORS = "RECEIVE_ERRORS";
 // regular action creators
 
 export const receiveCrypto = (prices) => {
-  debugger
   return {
     type: RECEIVE_CRYPTO,
     prices
@@ -21,10 +20,12 @@ export const receiveBitcoin = (bitcoin) => ({
     bitcoin
 })
 
-export const receiveCryptos = (cryptos) => ({
+export const receiveCryptos = (cryptos) => {
+  return{ 
     type: RECEIVE_CRYPTOS,
     cryptos
-})
+  }
+}
 
 export const receiveCryptoErrors = (errors) => ({
     type: RECEIVE_ERRORS,

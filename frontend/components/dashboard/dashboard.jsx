@@ -2,13 +2,13 @@ import React from 'react';
 import { render } from 'react-dom';
 import NavbarContainer from '../nav/nav_bar_container';
 import WalletsContainer from './wallets_container';
-import Chart from './portfolio_chart';
+import ChartContainer from './portfolio_chart_container';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   return(
     <div>
       <NavbarContainer />
-      <Chart />
+      <ChartContainer />
       <WalletsContainer />
     </div>
   )

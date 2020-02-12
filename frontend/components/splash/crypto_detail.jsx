@@ -1,17 +1,11 @@
 import React from 'react'
 
-class CryptoDetail extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-  
-  render() {
-    const {id, crypto} = this.props
+const CryptoDetail = ({id, crypto}) => {
     const logo  = crypto.image;
     const name = crypto.name;
     const symbol = crypto.symbol;
     const price = crypto.current_price.toFixed(2);
-    const perChange = crypto.price_change_percentage_24h_in_currency.toFixed(2);
+    const perChange = crypto.price_change_percentage_24h.toFixed(2);
     return (
       <tr>
         <td className="col-1-content">{id + 1}</td>
@@ -29,6 +23,5 @@ class CryptoDetail extends React.Component {
       </tr>
     )
   }
-}
 
 export default CryptoDetail
