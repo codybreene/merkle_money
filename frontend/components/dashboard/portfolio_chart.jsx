@@ -19,7 +19,6 @@ class Chart extends React.Component {
     const {wallets, currencies} = this.props
     const usdBalances = {}
     Object.values(wallets).forEach(wallet => {
-      // debugger;
       usdBalances[wallet.currency] = currencies[wallet.currency].current_price * wallet.balance
     })
     return usdBalances
@@ -31,7 +30,6 @@ class Chart extends React.Component {
       !Object.entries(this.props.currencies).length
     )
       return null;
-    debugger;
     // if(this.props.wallets == null || this.props.currencies == null) return null
     console.log(this.getUsdBalances())
       const options = {
