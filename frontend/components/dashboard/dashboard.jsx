@@ -1,37 +1,17 @@
-import React from 'react'
+import React from 'react';
+import { render } from 'react-dom';
+import NavbarContainer from '../nav/nav_bar_container';
+import WalletsContainer from './wallets_container';
+import Chart from './portfolio_chart';
 
-class Dashboard extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    componentDidMount() {
-        setTimeout(() => this.fetchAssets(), 1000)
-    }
-    
-    fetchAssets() {
-        
-        this.props.fetchWallets();
-        this.props.fetchTxns()
-    }
-
-    render() {
-        const txns = Object.values(this.props.txns).reverse()
-        return(
-            <div className="dashboard-container">
-                <div className="wallets-container">
-                    <ul>
-                        {txns.map(txn => {
-                        return <li>{`${txn.symbol}, ${txn.amount}, ${txn.created_at}`}</li>
-                        })}
-                    </ul>
-                </div>
-                <div className="recent-txns-container">
-
-                </div>
-            </div>
-        )
-    }
+const Dashboard = () => {
+  return(
+    <div>
+      <NavbarContainer />
+      <Chart />
+      <WalletsContainer />
+    </div>
+  )
 }
 
 export default Dashboard;

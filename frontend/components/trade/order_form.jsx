@@ -17,8 +17,8 @@ class OrderForm extends React.Component {
         const {fetchBitcoin, fetchWallets, fetchCryptos} = this.props
         fetchCryptos();
         this.updateInputSize();
-        if (!this.state.currency && Object.values(this.props.wallets).length === 0) {
-                fetchBitcoin().then(() => fetchWallets());
+        if (!this.state.currency) {
+          fetchBitcoin().then(() => fetchWallets());
         }
     }
 
@@ -120,7 +120,11 @@ class OrderForm extends React.Component {
                         onClick={() => this.props.openModal('buy')}>
                             Buy
                     </div>
-                    <div className="sell-tab" onClick={() => this.props.openModal('sell')}>Sell</div>
+                    <div 
+                      className="sell-tab" 
+                      onClick={() => this.props.openModal('sell')}>
+                        Sell
+                    </div>
                 </div>
                 <div className="order-form">
                     <div className="amt-container">

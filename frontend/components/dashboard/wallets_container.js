@@ -1,17 +1,14 @@
 import { connect } from 'react-redux';
-import Dashboard from './dashboard'
+import Wallets from './wallets'
 import { fetchWallets } from '../../actions/wallet_actions';
-import { fetchTxns } from '../../actions/txn_actions';
 
 const mapStateToProps = ({entities, session}) => ({
     userId: session.id,
-    wallets: entities.wallets,
-    txns: entities.recentTxns
+    wallets: entities.wallets
 })
 
 const mapDispatchToProps = (dispatch) => ({
     fetchWallets: () => dispatch(fetchWallets()),
-    fetchTxns: () => dispatch(fetchTxns())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(Wallets)

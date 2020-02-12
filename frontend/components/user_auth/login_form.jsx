@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavbarContainer from '../nav/nav_bar_container';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -65,40 +66,53 @@ class LoginForm extends React.Component {
     // render function that contains the form
     render() {
         return (
+          <div>
+            <NavbarContainer />
             <div className="session">
-                {this.renderErrors()}
-                <h2 className="header">Sign in to Merkle Money</h2>
-                <div className="form-wrapper">
+              {this.renderErrors()}
+              <h2 className="header">Sign in to Merkle Money</h2>
+              <div className="form-wrapper">
                 <form className="form-area" onSubmit={this.handleSubmit}>
-                    <div className="email-container">
-                        <input
-                            type="email"
-                            placeholder="Email"
-                            value={this.state.email}
-                            onChange={this.updateForm('email')}
-                        />
-                    </div>
-                    <div className="password-container">
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            value={this.state.password}
-                            onChange={this.updateForm('password')}
-                        />
-                    </div>
-                    <div className="btns">
-                        <input className="btn" type="submit" onClick={this.handleSubmit} value="Sign In"/>
-                        <input className="btn" type="submit" onClick={this.guestLogin} value="Sign In as a Guest"/>
-                    </div>
+                  <div className="email-container">
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      value={this.state.email}
+                      onChange={this.updateForm("email")}
+                    />
+                  </div>
+                  <div className="password-container">
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      value={this.state.password}
+                      onChange={this.updateForm("password")}
+                    />
+                  </div>
+                  <div className="btns">
+                    <input
+                      className="btn"
+                      type="submit"
+                      onClick={this.handleSubmit}
+                      value="Sign In"
+                    />
+                    <input
+                      className="btn"
+                      type="submit"
+                      onClick={this.guestLogin}
+                      value="Sign In as a Guest"
+                    />
+                  </div>
                 </form>
-                </div>
-                <div className="account-extras">
-                    <p>
-                        <Link to='/signup'>Don't have an account?</Link>
-                    </p>
-                </div>
+              </div>
+              <div className="account-extras">
+                <p>
+                  <Link to="/signup">Don't have an account?</Link>
+                </p>
+              </div>
             </div>
-        )
+          </div>
+        );
     }
 }
 
