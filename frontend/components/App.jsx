@@ -10,7 +10,7 @@ import Splash from './splash/splash';
 const App = () => (
   <div>
     <ModalContainer />
-    <Route exact path="/" component={Splash} />
+    <AuthRoute exact path="/" component={Splash} />
     <AuthRoute path="/signup" component={SignupFormContainer} />
     <AuthRoute path="/signin" component={LoginFormContainer} />
     <Route path='/dashboard' component={Dashboard} />

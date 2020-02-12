@@ -1,5 +1,5 @@
 import React from 'react';
-import { CryptoDetail } from './crypto_detail';
+import CryptoDetail from './crypto_detail';
 
 class PricesTrunc extends React.Component {
   constructor(props) {

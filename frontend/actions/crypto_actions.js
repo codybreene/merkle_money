@@ -9,10 +9,12 @@ export const RECEIVE_CRYPTO_ERRORS = "RECEIVE_ERRORS";
 
 // regular action creators
 
-export const receiveCrypto = (crypto) => ({
+export const receiveCrypto = (prices) => {
+  debugger
+  return {
     type: RECEIVE_CRYPTO,
-    crypto
-})
+    prices
+}}
 
 export const receiveBitcoin = (bitcoin) => ({
     type: RECEIVE_BITCOIN,
@@ -32,25 +34,25 @@ export const receiveCryptoErrors = (errors) => ({
 // thunk action creators
 
 export const fetchCrypto = (crypto) => dispatch => (
-    CryptoAPIUtil.fetchCrypto(crypto)
-        .then( 
-            (crypto) => dispatch(receiveCrypto(crypto)),
-            (errors) => dispatch(receiveErrors(errors))
-            )
+  CryptoAPIUtil.fetchCrypto(crypto)
+    .then( 
+      (prices) => dispatch(receiveCrypto(prices)),
+      (errors) => dispatch(receiveErrors(errors))
+    )
 )
 
 export const fetchBitcoin = () => dispatch => (
-    CryptoAPIUtil.fetchBitcoin()
-        .then(
-            (bitcoin) => dispatch(receiveBitcoin(bitcoin)),
-            (errors) => dispatch(receiveErrors(errors))
-        )
+  CryptoAPIUtil.fetchBitcoin()
+    .then(
+        (bitcoin) => dispatch(receiveBitcoin(bitcoin)),
+        (errors) => dispatch(receiveErrors(errors))
+    )
 )
 
 export const fetchCryptos = () => dispatch => (
-    CryptoAPIUtil.fetchCryptos()
-        .then(
-            (cryptos) => dispatch(receiveCryptos(cryptos)),
-            (errors) => dispatch(receiveCryptoErrors(errors))
-        )
+  CryptoAPIUtil.fetchCryptos()
+    .then(
+      (cryptos) => dispatch(receiveCryptos(cryptos)),
+      (errors) => dispatch(receiveCryptoErrors(errors))
+    )
 )

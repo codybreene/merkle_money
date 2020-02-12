@@ -1,5 +1,4 @@
 import {
-    RECEIVE_CRYPTO,
     RECEIVE_CRYPTOS,
 } from '../actions/crypto_actions';
 
@@ -12,9 +11,6 @@ export const cryptoReducer = (oldState = {}, action) => {
                 nextState[crypto.symbol] = crypto
             })
             return nextState;
-        case RECEIVE_CRYPTO:
-            nextState[action.crypto.symbol] = action.crypto
-            return nextState
         default:
             return oldState;
     }
