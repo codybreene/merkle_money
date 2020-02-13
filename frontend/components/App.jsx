@@ -5,6 +5,8 @@ import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import ModalContainer from '../components/trade/modal';
 import Dashboard from './dashboard/dashboard';
 import Splash from './splash/splash';
+import { Route } from 'react-router-dom';
+import PricePage from './prices/price_page';
 
 const App = () => (
   <div>
@@ -12,7 +14,8 @@ const App = () => (
     <AuthRoute exact path="/" component={Splash} />
     <AuthRoute path="/signup" component={SignupFormContainer} />
     <AuthRoute path="/signin" component={LoginFormContainer} />
-    <ProtectedRoute path='/dashboard' component={Dashboard} />
+    <ProtectedRoute path="/dashboard" component={Dashboard} />
+    <Route exact path="/prices" component={PricePage} />
   </div>
 );
 

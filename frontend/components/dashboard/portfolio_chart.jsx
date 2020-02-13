@@ -17,9 +17,15 @@ class Chart extends React.Component {
   getUsdBalances() {
     console.log("get usd balances");
     const {wallets, currencies} = this.props
-    const usdBalances = {}
+    const usdBalances = []
     Object.values(wallets).forEach(wallet => {
-      usdBalances[wallet.currency] = currencies[wallet.currency].current_price * wallet.balance
+      usdBalances.push(
+        {
+          "name": wallet.currency,
+          "y": currencies[wallet.currency].current_price*wallet.balance
+        }
+      )
+      console.log(usdBalances)
     })
     return usdBalances
   }
@@ -31,17 +37,49 @@ class Chart extends React.Component {
     )
       return null;
     // if(this.props.wallets == null || this.props.currencies == null) return null
-    console.log(this.getUsdBalances())
       const options = {
+        chart: {
+          type: "pie",
+          options3d: {
+            enabled: true,
+            alpha: 45
+          }
+        },
+        title: {
+          text: "Crypo Assets"
+        },
+        tooltip: {
+          pointFormat: "{series.name}: <b>${point.y:.2f}</b>"
+        },
+        plotOptions: {
+          pie: {
+            innerSize: 90,
+            depth: 45,
+            allowPointSelect: true,
+            cursor: "pointer",
+            dataLabels: {
+              enabled: false
+            },
+            showInLegend: true
+          }
+        },
         series: [
           {
-            name: "Profit",
-            data: [10, 20, 33, 27, 37, 66, 78]
+            name: "Crypto Assets",
+            data: this.getUsdBalances()
           }
         ]
       };
       return (
         <div>
+          <div>
+            <span>
+              Portfolio Balance:
+            </span>
+            <span>
+              
+            </span>
+          </div>
           <HighchartsReact highcharts={Highcharts} options={options} />
         </div>
       )
