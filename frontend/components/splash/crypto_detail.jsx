@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import {SparkLine} from '../portfolio/sparkline';
+import { Link } from 'react-router-dom';
 
 const CryptoDetail = ({id, crypto}) => {
     const logo  = crypto.image;
@@ -18,8 +20,8 @@ const CryptoDetail = ({id, crypto}) => {
         </td>
         <td className="col-3-content">{price}</td>
         <td className="col-4-content">{`${perChange} %`}</td>
-        <td className="col-5-content"></td>
-        <td className="col-6-content"></td>
+        <td className="col-5-content"><SparkLine prices={crypto.sparkline_in_7d.price}/></td>
+        <td className="col-6-content"><Link className="buy-home" to="/signin">Buy</Link></td>
       </tr>
     )
   }
