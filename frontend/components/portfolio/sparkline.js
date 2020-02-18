@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineChart, Line, Tooltip } from 'recharts';
+import { LineChart, Line, Tooltip, ResponsiveContainer } from 'recharts';
 
 export const SparkLine = (props) => {
 
@@ -13,9 +13,15 @@ export const SparkLine = (props) => {
   })
 
   return (
-    <LineChart width={100} height={70} data={data}>
-      <Tooltip />
-      <Line type="natural" dataKey="price" stroke="rgba(17, 51, 83, 0.3)" dot={false} strokeWidth={1.7} />
-    </LineChart>
-  )
+      <LineChart data={data} width={40} height={30}>
+        <Tooltip />
+        <Line
+          type="natural"
+          dataKey="price"
+          stroke="gray"
+          dot={false}
+          strokeWidth={1.2}
+        />
+      </LineChart>
+  );
 }
