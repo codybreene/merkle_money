@@ -15,33 +15,32 @@
 
 .col-3-content {
   cursor: default;
-  position: relative;
-  width: 85px;
+  width: 132px;
   padding: 14px 48px 14px 0px;
   border-top: 1px solid rgb(236, 239, 241);
 }
 
 .col-4-content {
   cursor: default;
-  position: relative;
-  width: 85px;
-  padding: 14px 48px 14px 0px;
+  width: 100px;
+  margin-right: 20px;
+  text-align: left;
+  padding: 14px 2px 14px 0px;
   border-top: 1px solid rgb(236, 239, 241);
 }
 
 .col-5-content {
   cursor: default;
-  position: relative;
-  width: 85px;
-  padding: 14px 48px 14px 0px;
+  width: 100px;
   border-top: 1px solid rgb(236, 239, 241);
+  padding: 5px 25px 5px 5px;
 }
 
 .col-6-content {
   cursor: default;
-  position: relative;
-  width: 85px;
+  width: 70px;
   padding: 14px 48px 14px 0px;
+  padding-right: 32px;
   border-top: 1px solid rgb(236, 239, 241);
 }
 
@@ -57,6 +56,20 @@
   padding-left: 16px;
 }
 
-.table-crypto-name {
-  
+.buy-home {
+  position: relative;
+  width: auto;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-size: 14px;
+  background-color: rgb(5, 177, 105);
+  margin: 0px;
+  border-radius: 4px;
+  transition: all 80ms ease-in-out 0s;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(5, 177, 105);
+  border-image: initial;
+  white-space: nowrap;
+  padding: 12px 16px;
 }
