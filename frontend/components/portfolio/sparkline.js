@@ -6,14 +6,16 @@ export const SparkLine = (props) => {
   const data = []
 
   props.prices.map((price, index) => {
-    data.push({
-      time: index,
-      price: price
-    })
+    if(index%5===0) {
+      data.push({
+        time: index,
+        price: price
+      })
+    }
   })
 
   return (
-      <LineChart data={data} width={40} height={30}>
+      <LineChart data={data} width={60} height={40}>
         <Tooltip />
         <Line
           type="natural"

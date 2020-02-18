@@ -12,6 +12,9 @@ class Prices extends React.Component {
 
   render() {
     const cryptos = Object.values(this.props.currencies);
+    const openModal = this.props.openModal;
+    const setCurrency = this.props.setCurrency;
+    const currentUser = this.props.currentUser
     if (this.props === undefined) {
       return null;
     } else {
@@ -64,7 +67,14 @@ class Prices extends React.Component {
             </thead>
             <tbody>
               {cryptos.map((crypto, index) => (
-                <CryptoDetail key={index} id={index} crypto={crypto} />
+                <CryptoDetail 
+                  key={index} 
+                  id={index} 
+                  crypto={crypto}
+                  setCurrency={setCurrency}
+                  openModal={openModal}
+                  currentUser={currentUser}
+                  />
               ))}
             </tbody>
           </table>
