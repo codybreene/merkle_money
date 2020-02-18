@@ -1,6 +1,7 @@
 import React from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import { Wallets } from "./wallets";
 
 class Chart extends React.Component {
   constructor(props) {
@@ -14,8 +15,16 @@ class Chart extends React.Component {
     this.props.fetchWallets()
   }
 
+  getTotal() {
+    const {wallets, currencies} = this.props
+    let total = 0
+    Object.values(wallets).forEach(wallet => {
+      total += currencies[wallet.currency].current_price*wallet.balance
+    })
+    return total.toFixed(2)
+  }
+
   getUsdBalances() {
-    console.log("get usd balances");
     const {wallets, currencies} = this.props
     const usdBalances = []
     Object.values(wallets).forEach(wallet => {
@@ -25,7 +34,6 @@ class Chart extends React.Component {
           "y": currencies[wallet.currency].current_price*wallet.balance
         }
       )
-      console.log(usdBalances)
     })
     return usdBalances
   }
@@ -36,7 +44,6 @@ class Chart extends React.Component {
       !Object.entries(this.props.currencies).length
     )
       return null;
-    // if(this.props.wallets == null || this.props.currencies == null) return null
       const options = {
         chart: {
           type: "pie",
@@ -72,17 +79,19 @@ class Chart extends React.Component {
       };
       return (
         <div>
-          <div>
-            <span>
-              Portfolio Balance:
-            </span>
-            <span>
-              
-            </span>
+          <div className="portfolio-balance">
+            <span>Portfolio Balance:</span>
+            <span>${this.getTotal()}</span>
+            <span></span>
           </div>
-          <HighchartsReact highcharts={Highcharts} options={options} />
+          <div className="pie-chart">
+            <HighchartsReact highcharts={Highcharts} options={options} />
+          </div>
+          <div>
+            <Wallets wallets={this.props.wallets} />
+          </div>
         </div>
-      )
+      );
     }
 };
 
