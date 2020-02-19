@@ -5,8 +5,9 @@ import { Wallets } from "./wallets";
 
 class Chart extends React.Component {
   constructor(props) {
-    super(props)
-    this.getUsdBalances = this.getUsdBalances.bind(this)
+    super(props);
+    this.getUsdBalances = this.getUsdBalances.bind(this);
+    this.getLogos = this.getLogos.bind(this);
   }
 
   componentDidMount() {
@@ -22,6 +23,18 @@ class Chart extends React.Component {
       total += currencies[wallet.currency].current_price*wallet.balance
     })
     return total.toFixed(2)
+  }
+
+  getLogos() {
+    const {currencies} = this.props
+    const logos = {}
+    Object.values(currencies).forEach(currency => {
+      logos[currency.symbol] = {
+        logo: currency.image,
+        name: currency.name
+      }
+    })
+    return logos
   }
 
   getUsdBalances() {
@@ -88,7 +101,10 @@ class Chart extends React.Component {
             <HighchartsReact highcharts={Highcharts} options={options} />
           </div>
           <div>
-            <Wallets wallets={this.props.wallets} />
+            <Wallets 
+              balances={this.getUsdBalances()} 
+              wallets={this.props.wallets}
+              logos={this.getLogos()} />
           </div>
         </div>
       );
