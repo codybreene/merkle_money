@@ -1,7 +1,6 @@
 import React from 'react'
 
-export const Wallets = ({wallets}) => {
-  debugger
+export const Wallets = ({ balances, wallets }) => {
   return (
     <div>
       <div className="wallets-container">
@@ -9,8 +8,7 @@ export const Wallets = ({wallets}) => {
           {Object.values(wallets).map(wallet => {
             return (
               <li>
-              {wallet.currency}
-              {wallet.balance}
+                
               </li>
             );
           })}

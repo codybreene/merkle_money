@@ -88,7 +88,7 @@ class Chart extends React.Component {
             <HighchartsReact highcharts={Highcharts} options={options} />
           </div>
           <div>
-            <Wallets wallets={this.props.wallets} />
+            <Wallets balances={this.props.getUsdBalances} wallets={this.props.wallets} />
           </div>
         </div>
       );
