@@ -63,9 +63,9 @@ class Chart extends React.Component {
             <span>${this.getTotal()}</span>
             <span></span>
           </div>
-          <div className="pie-chart">
+          {/* <div className="pie-chart">
             <Portfolio data={data} />
-          </div>
+          </div> */}
           <div>
             <Wallets 
               balances={this.getUsdBalances()} 

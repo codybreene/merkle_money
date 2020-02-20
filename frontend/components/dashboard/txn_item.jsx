@@ -17,8 +17,8 @@ export const TxnItem = ({
         </div>
       </td>
       <td className="col-3-content">{action} {name}</td>
-      <td className="col-4-content">{amtCrypto.toFixed(4)} {symbol.toUpperCase()}</td>
-      <td className="col-5-content">{`$${amtDollar.toFixed(2)}`}</td>
+      <td className="col-4-content">{amtCrypto.toLocaleString(undefined, { minimumFractionDigits: 4, maximumFractionDigits: 4 })} {symbol.toUpperCase()}</td>
+      <td className="col-5-content">{`$${amtDollar.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</td>
     </tr>
   );
 }
