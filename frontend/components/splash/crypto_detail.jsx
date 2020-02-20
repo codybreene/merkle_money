@@ -14,9 +14,14 @@ const CryptoDetail = ({id, crypto, setCurrency, openModal, currentUser}) => {
       </Link>
     );
 
+    const onTrade = (crypto) => {
+      setCurrency(crypto)
+      openModal("buy")
+    }
+
     if(currentUser) {
       button = (
-        <button className="trade-btn-index" onClick={() => openModal("buy")}>
+        <button className="trade-btn-index" onClick={() => onTrade(crypto)}>
           Trade
         </button>
       );

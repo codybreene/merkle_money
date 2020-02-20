@@ -70,7 +70,8 @@ class Chart extends React.Component {
             <Wallets 
               balances={this.getUsdBalances()} 
               wallets={this.props.wallets}
-              logos={this.getLogos()} />
+              logos={this.getLogos()}
+              total={this.getTotal()} />
           </div>
         </div>
       );

@@ -16,7 +16,6 @@ class NavBar extends React.Component {
                         <div className="left-side">
                             <Link className="mm-logo" to='/dashboard'><img src={mm_logo} alt=""/></Link>
                             <Link className="link-home" to='/dashboard'>Home</Link>
-                            <Link className="link-accounts" to='/accounts'>Portfolio</Link>
                             <Link className="link-prices" to='/prices'>Prices</Link>
                         </div>
                         <div className="right-side">
@@ -31,7 +30,6 @@ class NavBar extends React.Component {
                 <div className="nav-bar-container-2">
                     <div className="navbar-signed-out">
                         <Link className="link-home" to='/'>Merkle Money</Link>
-                        <Link className="link-accounts" to='/accounts'>Portfolio</Link>
                         <Link className="link-signin" to='/signin'>Sign in</Link>
                         <Link className="link-signup" to='/signup'>Get started</Link>
                     </div>

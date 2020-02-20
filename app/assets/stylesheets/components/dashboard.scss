@@ -1,9 +1,37 @@
 .portfolio-balance {
   display: flex;
   flex-direction: column;
+  opacity: 1;
+  font-variant: tabular-nums;
+  transition: opacity 350ms ease 0s;
 }
 
 .wallet-txn-container {
   display: flex;
   justify-content: center;
 }
+
+.wallet-content-container {
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(17, 51, 83, 0.02) 0px 4px 12px 0px;
+  padding: 0px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(236, 239, 241);
+  border-image: initial;
+  border-radius: 4px;
+  height: 100vh;
+  overflow: auto;
+  margin-right: 100px;
+}
+
+.portfolio-header {
+  line-height: 1.3;
+  color: rgb(5, 15, 25);
+  font-size: 20px;
+  font-weight: 600;
+  height: 24px;
+  padding: 24px 0px 24px 24px
+}
+
