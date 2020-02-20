@@ -13,7 +13,7 @@ export const WalletItem = ({wallet, balance, logo}) => {
         </div>
       </td>
       <td className="col-3-content">{wallet.balance} {sym}</td>
-      <td className="col-4-content">{`$${balance.y}`}</td>
+      <td className="col-4-content">{`$${balance.value.toFixed(2)}`}</td>
     </tr>
   );
 }
