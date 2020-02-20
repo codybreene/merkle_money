@@ -42,7 +42,6 @@ class Txns extends React.Component {
       !Object.entries(this.props.currencies).length
     )
       return null;
-    console.log(this.formatTxns())
     return (
       <div className="wallet-content-container">
         <div>

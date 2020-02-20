@@ -3,7 +3,6 @@ import {WalletItem} from './wallet_item';
 import TxnContainer from './txns_container';
 
 export const Wallets = ({ balances, wallets, logos, total }) => {
-  console.dir(balances)
   return (
     <div className="wallet-txn-container">
       <div className="wallet-content-container">

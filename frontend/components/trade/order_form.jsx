@@ -56,7 +56,6 @@ class OrderForm extends React.Component {
     }
 
     updateTxn(field) {
-        // console.log(this.state)
         return (e) => {
             this.updateInputSize()
             this.setState({
@@ -96,7 +95,6 @@ class OrderForm extends React.Component {
     }
 
     renderErrors() {
-        console.log("this should render errors when I write it...")
         return null
     }
 

@@ -22,13 +22,15 @@ class Api::TransactionsController < ApplicationController
     end
 
     def index
+      if current_user
         @txns = current_user.transactions.order(created_at: :desc)
+      end
 
-        if @txns
-            render :index 
-        else
-            render json: ["user doesn't exist :("]
-        end
+      if @txns
+          render :index 
+      else
+          render json: ["user doesn't exist :("]
+      end
     end
 
     private
