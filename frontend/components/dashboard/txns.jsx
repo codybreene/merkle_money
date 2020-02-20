@@ -8,6 +8,7 @@ class Txns extends React.Component {
 
   componentDidMount() {
     this.props.fetchTxns()
+    this.props.fetchCryptos()
   }
 
   formatDate(createdAt) {
@@ -27,7 +28,8 @@ class Txns extends React.Component {
           "symbol": txn.symbol,
           "name": currencies[txn.symbol].name,
           "amtCrypto": txn.amount,
-          "amtUsd": currencies[txn.symbol].current_price * txn.amount
+          "amtUsd": currencies[txn.symbol].current_price * txn.amount,
+          "logo": currencies[txn.symbol].image
         }
       )
     })
@@ -42,11 +44,11 @@ class Txns extends React.Component {
       return null;
     console.log(this.formatTxns())
     return (
-      <div className="wallet-container">
+      <div className="wallet-content-container">
         <div>
-          <h2>Recent Transactions</h2>
+          <h2 className="portfolio-header">Recent Transactions</h2>
         </div>
-        <div className="wallet-content-container">
+        <div>
           <div className="wallet-table-container">
             <table className="wallet-table">
               <tbody>
@@ -61,6 +63,7 @@ class Txns extends React.Component {
                     action={txn.amount > 0 ? "Bought" : "Sold"}
                     amtCrypto={txn.amtCrypto}
                     amtDollar={txn.amtUsd}
+                    logo={txn.logo}
                   />
                 ))}
               </tbody>

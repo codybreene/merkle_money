@@ -11,7 +11,7 @@ export const txnReducer = (oldState = {}, action) => {
             nextState = action.txns
             return nextState;
         case RECEIVE_TXN:
-            nextState[action.txn.id] = action.txn
+            nextState[action.txn.id] = Object.values(action.txn)[0]
             return nextState;
         default:
             return oldState;

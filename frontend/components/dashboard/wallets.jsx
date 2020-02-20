@@ -1,14 +1,15 @@
 import React from 'react';
 import {WalletItem} from './wallet_item';
+import TxnContainer from './txns_container';
 
-export const Wallets = ({ balances, wallets, logos }) => {
+export const Wallets = ({ balances, wallets, logos, total }) => {
   console.dir(balances)
   return (
-    <div className="wallet-container">
-      <div>
-        <h2>Your Portfolio</h2>
-      </div>
+    <div className="wallet-txn-container">
       <div className="wallet-content-container">
+      <div>
+        <h2 className="portfolio-header">Your Portfolio</h2>
+      </div>
         <div className="wallet-table-container">
           <table className="wallet-table">
             <tbody>
@@ -25,8 +26,12 @@ export const Wallets = ({ balances, wallets, logos }) => {
           </table>
         </div>
         <div className="wallet-footer">
-          <span>Total Balance: </span>
+          <span>Total Balance: ${total}</span>
         </div>
+        <div className="spacer"></div>
+      </div>
+      <div className="txn-container">
+        <TxnContainer />
       </div>
     </div>
   );

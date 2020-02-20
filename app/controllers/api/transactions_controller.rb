@@ -5,7 +5,7 @@ class Api::TransactionsController < ApplicationController
         @txn = Transaction.new(txn_params)
 
         if @txn.save
-            render json: @txn 
+            render :create 
         else
             render json: @txn.errors.full_messages, status: 422
         end
@@ -22,7 +22,7 @@ class Api::TransactionsController < ApplicationController
     end
 
     def index
-        @txns = current_user.transactions 
+        @txns = current_user.transactions.order(created_at: :desc)
 
         if @txns
             render :index 

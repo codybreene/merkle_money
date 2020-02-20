@@ -66,7 +66,7 @@ class SignupForm extends React.Component {
     // render function that contains the form
     render() {
         return (
-          <div>
+          <div className="signup-form-container">
             <NavbarContainer />
             <div className="session">
               {this.renderErrors()}

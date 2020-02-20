@@ -1,6 +1,5 @@
 import React from 'react';
-import Highcharts from 'highcharts';
-import HighchartsReact from 'highcharts-react-official';
+import { Portfolio } from './pie_chart';
 import { Wallets } from "./wallets";
 
 class Chart extends React.Component {
@@ -11,7 +10,6 @@ class Chart extends React.Component {
   }
 
   componentDidMount() {
-    console.log("component did mount")
     this.props.fetchCryptos()
     this.props.fetchWallets()
   }
@@ -44,7 +42,7 @@ class Chart extends React.Component {
       usdBalances.push(
         {
           "name": wallet.currency,
-          "y": currencies[wallet.currency].current_price*wallet.balance
+          "value": currencies[wallet.currency].current_price*wallet.balance
         }
       )
     })
@@ -57,39 +55,7 @@ class Chart extends React.Component {
       !Object.entries(this.props.currencies).length
     )
       return null;
-      const options = {
-        chart: {
-          type: "pie",
-          options3d: {
-            enabled: true,
-            alpha: 45
-          }
-        },
-        title: {
-          text: "Crypo Assets"
-        },
-        tooltip: {
-          pointFormat: "{series.name}: <b>${point.y:.2f}</b>"
-        },
-        plotOptions: {
-          pie: {
-            innerSize: 90,
-            depth: 45,
-            allowPointSelect: true,
-            cursor: "pointer",
-            dataLabels: {
-              enabled: false
-            },
-            showInLegend: true
-          }
-        },
-        series: [
-          {
-            name: "Crypto Assets",
-            data: this.getUsdBalances()
-          }
-        ]
-      };
+      const data = this.getUsdBalances()
       return (
         <div>
           <div className="portfolio-balance">
@@ -97,14 +63,15 @@ class Chart extends React.Component {
             <span>${this.getTotal()}</span>
             <span></span>
           </div>
-          <div className="pie-chart">
-            <HighchartsReact highcharts={Highcharts} options={options} />
-          </div>
+          {/* <div className="pie-chart">
+            <Portfolio data={data} />
+          </div> */}
           <div>
             <Wallets 
               balances={this.getUsdBalances()} 
               wallets={this.props.wallets}
-              logos={this.getLogos()} />
+              logos={this.getLogos()}
+              total={this.getTotal()} />
           </div>
         </div>
       );

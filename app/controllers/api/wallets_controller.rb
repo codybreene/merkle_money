@@ -21,13 +21,15 @@ class Api::WalletsController < ApplicationController
     end
 
     def index
+      if current_user
         @wallets = current_user.wallets
+      end
 
-        if @wallets
-            render json: @wallets
-        else
-            render json: ["user don't exist :("]
-        end
+      if @wallets
+          render json: @wallets
+      else
+          render json: ["user don't exist :("]
+      end
 
     end
 
