@@ -55,17 +55,15 @@ class Chart extends React.Component {
       !Object.entries(this.props.currencies).length
     )
       return null;
-      const data = this.getUsdBalances()
+      const total = this.getTotal()
       return (
         <div>
           <div className="portfolio-balance">
             <span>Portfolio Balance:</span>
-            <span>${this.getTotal()}</span>
-            <span></span>
+            <span className="portfolio-total">
+              ${total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            </span>
           </div>
-          {/* <div className="pie-chart">
-            <Portfolio data={data} />
-          </div> */}
           <div>
             <Wallets 
               balances={this.getUsdBalances()} 

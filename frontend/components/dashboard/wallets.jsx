@@ -6,9 +6,9 @@ export const Wallets = ({ balances, wallets, logos, total }) => {
   return (
     <div className="wallet-txn-container">
       <div className="wallet-content-container">
-      <div>
-        <h2 className="portfolio-header">Your Portfolio</h2>
-      </div>
+        <div>
+          <h2 className="portfolio-header">Your Portfolio</h2>
+        </div>
         <div className="wallet-table-container">
           <table className="wallet-table">
             <tbody>
@@ -25,7 +25,13 @@ export const Wallets = ({ balances, wallets, logos, total }) => {
           </table>
         </div>
         <div className="wallet-footer">
-          <span>Total Balance: ${total}</span>
+          <div>
+            Total Balance: $
+            {total.toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+            })}
+          </div>
         </div>
         <div className="spacer"></div>
       </div>

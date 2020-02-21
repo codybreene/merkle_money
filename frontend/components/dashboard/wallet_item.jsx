@@ -12,8 +12,13 @@ export const WalletItem = ({wallet, balance, logo}) => {
           <div className="table-crypto-name">{name}</div>
         </div>
       </td>
-      <td className="col-3-content">{wallet.balance} {sym}</td>
-      <td className="col-4-content">{`$${balance.value.toFixed(2)}`}</td>
+      <td className="col-3-content">
+        {wallet.balance} {sym}
+      </td>
+      <td className="col-4-content">{`$${balance.value.toLocaleString(
+        undefined,
+        { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+      )}`}</td>
     </tr>
   );
 }
