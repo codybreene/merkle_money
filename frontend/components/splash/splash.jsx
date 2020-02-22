@@ -19,7 +19,7 @@ class Splash extends React.Component {
                   Buy and sell cryptocurrency
                 </span>
                 <h4 className="splash-content-2">
-                  Merkle Money is the easiest place to buy, sell, and manage 
+                  Merkle Money is the easiest place to buy, sell, and manage
                   your cryptocurrency portfolio.
                 </h4>
               </div>
@@ -30,8 +30,19 @@ class Splash extends React.Component {
           <div className="prices-backdrop"></div>
           <PricesTruncContainer />
         </div>
+        <div className="footer">
+          <a href="https://github.com/codybreene">
+            <img src="" alt=""/>
+          </a>
+          <a href="https://www.linkedin.com/in/cody-breene-35409635/">
+            <img src="" alt=""/>
+          </a>
+          <a href="https://angel.co/cody-breene">
+            <img src="" alt=""/>
+          </a>
+        </div>
       </div>
-    )
+    );
   }
 }
 

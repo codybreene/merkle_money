@@ -59,7 +59,7 @@ class Txns extends React.Component {
                     day={txn.date[1]}
                     symbol={txn.symbol}
                     name={txn.name}
-                    action={txn.amount > 0 ? "Bought" : "Sold"}
+                    action={txn.amtCrypto > 0 ? "Bought" : "Sold"}
                     amtCrypto={txn.amtCrypto}
                     amtDollar={txn.amtUsd}
                     logo={txn.logo}

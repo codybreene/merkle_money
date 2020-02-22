@@ -1,6 +1,6 @@
 import React from 'react';
-import { Portfolio } from './pie_chart';
 import { Wallets } from "./wallets";
+import { Redirect } from 'react-router-dom';
 
 class Chart extends React.Component {
   constructor(props) {
@@ -50,29 +50,29 @@ class Chart extends React.Component {
   }
 
   render() {
+    //wait for async calls
     if (
       !Object.entries(this.props.wallets).length ||
       !Object.entries(this.props.currencies).length
-    )
-      return null;
-      const total = this.getTotal()
-      return (
-        <div>
-          <div className="portfolio-balance">
-            <span>Portfolio Balance:</span>
-            <span className="portfolio-total">
-              ${total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-            </span>
-          </div>
-          <div>
-            <Wallets 
-              balances={this.getUsdBalances()} 
-              wallets={this.props.wallets}
-              logos={this.getLogos()}
-              total={this.getTotal()} />
-          </div>
+    ) return null;
+
+    return (
+      <div>
+        <div className="portfolio-balance">
+          <span>Portfolio Balance:</span>
+          <span className="portfolio-total">
+            {`${this.getTotal().toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+          </span>
         </div>
-      );
+        <div>
+          <Wallets 
+            balances={this.getUsdBalances()} 
+            wallets={this.props.wallets}
+            logos={this.getLogos()}
+            total={this.getTotal()} />
+        </div>
+      </div>
+    );
     }
 };
 

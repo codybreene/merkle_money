@@ -30,7 +30,8 @@ class SignupForm extends React.Component {
         e.preventDefault();
         this.props.signup(this.state)
             .then(
-                () => this.props.history.push('/dashboard'))
+                () => this.props.history.push('/prices'))
+            .then(() => console.dir(this.props))
             .fail(
                 (errors) => this.setState({
                     errors: errors

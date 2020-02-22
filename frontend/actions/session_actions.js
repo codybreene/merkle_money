@@ -1,4 +1,6 @@
 import * as AuthAPIUtil from '../util/session_api_util'
+import { createWallet } from '../actions/wallet_actions';
+import { createTxn } from '../actions/txn_actions';
 
 // action type constants 
 
@@ -31,10 +33,10 @@ export const clearErrors = () => ({
 
 export const signup = (user) => (dispatch) => (
     AuthAPIUtil.signup(user)
-        .then(
-            (user) => dispatch(receiveCurrentUser(user)),
-            (error) => dispatch(receiveErrors(error.responseJSON))
-        )
+      .then(
+        (user) => dispatch(receiveCurrentUser(user)),
+        (error) => dispatch(receiveErrors(error.responseJSON))
+      )
 )
 
 export const login = (user) => (dispatch) => (

@@ -8,7 +8,6 @@ const Dashboard = (props) => {
     <div>
       <NavbarContainer />
       <ChartContainer />
-      {/* <TxnContainer /> */}
     </div>
   )
 }
