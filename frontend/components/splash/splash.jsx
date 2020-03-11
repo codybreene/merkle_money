@@ -30,6 +30,19 @@ class Splash extends React.Component {
           <div className="prices-backdrop"></div>
           <PricesTruncContainer />
         </div>
+        <h1 className="merkle-text-1">
+          Plant your cryptocurrency seedling, and watch it grow
+          into a merkle money portfolio. 
+        </h1>
+        <div className="merkle-text-2">
+          A merkle tree is a data structure that allows for the
+          verification of cryptocurrency transactions. Each leaf represents
+          a transaction, while each branch represents a hashed set of 
+          transactions.
+        </div>
+        <div className="tree-img-container">
+          <img className="tree-img" src={tree} alt=""/>
+        </div>
         <div className="footer">
           <a href="https://github.com/codybreene">
             <img src="" alt=""/>
