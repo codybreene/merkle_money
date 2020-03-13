@@ -91,5 +91,34 @@
   font-family: Graphik, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
-  padding: 25px;
+  padding: 0px 25px;
+}
+
+.footer {
+  background-color: lightgrey;
+  padding-top: 40px;
+}
+
+.footer-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-images img {
+  width: 5vw;
+  margin: 0px 20px;
+}
+
+img[alt~="linkedin"] {
+    border-radius: 2px;
+}
+
+.merkle-text {
+  font-weight: 600;
+  text-shadow: none;
+  text-decoration: none;
+  padding: 8px 10px;
+  font-size: 16px;
+  text-align: center;
 }

@@ -43,17 +43,6 @@ class Splash extends React.Component {
         <div className="tree-img-container">
           <img className="tree-img" src={tree} alt=""/>
         </div>
-        <div className="footer">
-          <a href="https://github.com/codybreene">
-            <img src="" alt=""/>
-          </a>
-          <a href="https://www.linkedin.com/in/cody-breene-35409635/">
-            <img src="" alt=""/>
-          </a>
-          <a href="https://angel.co/cody-breene">
-            <img src="" alt=""/>
-          </a>
-        </div>
       </div>
     );
   }
