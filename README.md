@@ -1,23 +1,18 @@
-# README
+# [Merkle Money](https://merkle-money.herokuapp.com/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Merkle Money](https://merkle-money.herokuapp.com/) is a cryptocurrency mock-trading app based on [Coinbase](https://www.coinbase.com/). 
 
-Things you may want to cover:
+## Namesake
 
-* Ruby version
+The [Merkle Tree](https://en.bitcoinwiki.org/wiki/Merkle_tree) is the data structure used by Bitcoin to hash transactions. 
 
-* System dependencies
+## Features
+1. Fetch and track real-time cryptocurrency prices
+2. Build a no-risk portfolio with over ten different cryptocurrencies 
+3. Review recent transactions
 
-* Configuration
+## Code Snippet
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
 
