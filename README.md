@@ -14,7 +14,15 @@ The [Merkle Tree](https://en.bitcoinwiki.org/wiki/Merkle_tree) is the data struc
 3. Review recent transactions
 
 ## Code Snippet
+* This function ensures users only enter numeric values when buying or selling cryptocurrencies, and it dynamically updates the size of the input field as the user types.
+* If the amount entered is greater than 9999, and the user is not attempting to delete the amount, use local state to keep the current amount.
+* If the user clicks a non-numeric key, and the user is not attempting to delete the amount, do not update the input field.  
+![Image 2](https://user-images.githubusercontent.com/5722230/76671869-10b34b80-6556-11ea-8ecd-ac734b643133.png)
 
+## Technology 
+* React
+* Redux
+* Rails
 
 
 
